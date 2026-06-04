@@ -115,15 +115,21 @@
     .team__header { text-align: center; margin-bottom: 4rem; }
     .team__header h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--white); }
     .team__header p { color: rgba(255,255,255,.55); max-width: 480px; margin: 1rem auto 0; font-weight: 300; }
-    .team__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.5rem; }
-    .team-card { text-align: center; }
-    .team-card__img { aspect-ratio: 1; border-radius: 2px; overflow: hidden; margin-bottom: 1rem; }
-    .team-card__img img { height: 100%; transition: transform 500ms ease; filter: grayscale(20%); }
-    .team-card:hover .team-card__img img { transform: scale(1.05); filter: grayscale(0%); }
-    .team-card__name { font-family: 'Bodoni Moda', serif; font-size: 1rem; color: var(--white); }
-    .team-card--founder .team-card__img { border: 2px solid var(--gold); }
-    .team-card--founder .team-card__name { color: var(--gold); }
-    .team-card__role { font-size: .75rem; color: rgba(255,255,255,.45); font-weight: 400; letter-spacing: .06em; margin-top: .2rem; }
+    .team__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+    .team-card { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 2px; cursor: default; }
+    .team-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; filter: grayscale(30%); }
+    .team-card:hover img { transform: scale(1.06); filter: grayscale(0%); }
+    .team-card__info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1.25rem 1.25rem;
+      background: linear-gradient(to top, rgba(12,10,9,.92) 0%, rgba(12,10,9,0) 100%);
+      transform: translateY(4px);
+      transition: transform 350ms ease;
+    }
+    .team-card:hover .team-card__info { transform: translateY(0); }
+    .team-card__name { font-family: 'Bodoni Moda', serif; font-size: 1rem; color: var(--white); line-height: 1.25; }
+    .team-card__role { font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-top: .25rem; }
+    .team-card--founder { outline: 2px solid var(--gold); outline-offset: -2px; }
 
     /* ── CTA banner ── */
     .cta-banner { padding: clamp(4rem, 8vh, 6rem) 0; text-align: center; }
@@ -319,60 +325,60 @@
       </div>
       <div class="team__grid reveal">
         <div class="team-card team-card--founder">
-          <div class="team-card__img">
-            <img src="images/team-1752.jpg" alt="Stijn Van Woensel" loading="lazy" />
+          <img src="images/team-1752.jpg" alt="Stijn Van Woensel" loading="lazy" />
+          <div class="team-card__info">
+            <p class="team-card__name">Stijn Van Woensel</p>
+            <p class="team-card__role" data-lang="nl">Oprichter</p>
+            <p class="team-card__role" data-lang="fr">Fondateur</p>
           </div>
-          <p class="team-card__name">Stijn Van Woensel</p>
-          <p class="team-card__role" data-lang="nl">Oprichter</p>
-          <p class="team-card__role" data-lang="fr">Fondateur</p>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1753.jpg" alt="Patrik De Vos" loading="lazy" /></div>
-          <p class="team-card__name">Patrik De Vos</p>
+          <img src="images/team-1753.jpg" alt="Patrik De Vos" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Patrik De Vos</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1754.jpg" alt="Kris Van Orshoven" loading="lazy" /></div>
-          <p class="team-card__name">Kris Van Orshoven</p>
+          <img src="images/team-1754.jpg" alt="Kris Van Orshoven" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Kris Van Orshoven</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1755.jpg" alt="Omer Elen" loading="lazy" /></div>
-          <p class="team-card__name">Omer Elen</p>
+          <img src="images/team-1755.jpg" alt="Omer Elen" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Omer Elen</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1756.jpg" alt="Michiel Roegies" loading="lazy" /></div>
-          <p class="team-card__name">Michiel Roegies</p>
+          <img src="images/team-1756.jpg" alt="Michiel Roegies" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Michiel Roegies</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1757.jpg" alt="Natascha Wauters" loading="lazy" /></div>
-          <p class="team-card__name">Natascha Wauters</p>
+          <img src="images/team-1757.jpg" alt="Natascha Wauters" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Natascha Wauters</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1758.jpg" alt="Ronny Nauwelaerts" loading="lazy" /></div>
-          <p class="team-card__name">Ronny Nauwelaerts</p>
+          <img src="images/team-1758.jpg" alt="Ronny Nauwelaerts" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Ronny Nauwelaerts</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1759.jpg" alt="Bruno Cornelis" loading="lazy" /></div>
-          <p class="team-card__name">Bruno Cornelis</p>
+          <img src="images/team-1759.jpg" alt="Bruno Cornelis" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Bruno Cornelis</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1760.jpg" alt="Toine Stikkers" loading="lazy" /></div>
-          <p class="team-card__name">Toine Stikkers</p>
+          <img src="images/team-1760.jpg" alt="Toine Stikkers" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Toine Stikkers</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1761.jpg" alt="Sven Cammaerts" loading="lazy" /></div>
-          <p class="team-card__name">Sven Cammaerts</p>
+          <img src="images/team-1761.jpg" alt="Sven Cammaerts" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Sven Cammaerts</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1762.jpg" alt="Leo Van Dessel" loading="lazy" /></div>
-          <p class="team-card__name">Leo Van Dessel</p>
+          <img src="images/team-1762.jpg" alt="Leo Van Dessel" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Leo Van Dessel</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1763.jpg" alt="Bertrand Matkoski" loading="lazy" /></div>
-          <p class="team-card__name">Bertrand Matkoski</p>
+          <img src="images/team-1763.jpg" alt="Bertrand Matkoski" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Bertrand Matkoski</p></div>
         </div>
         <div class="team-card">
-          <div class="team-card__img"><img src="images/team-1764.jpg" alt="Lowie Van Woensel" loading="lazy" /></div>
-          <p class="team-card__name">Lowie Van Woensel</p>
+          <img src="images/team-1764.jpg" alt="Lowie Van Woensel" loading="lazy" />
+          <div class="team-card__info"><p class="team-card__name">Lowie Van Woensel</p></div>
         </div>
       </div>
     </div>
