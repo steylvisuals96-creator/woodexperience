@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realisaties — Wood Experience</title>
+  <meta name="description" content="Bekijk de realisaties van Wood Experience — hotels, restaurants, winkels en residentiële projecten in heel België." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #1C1917;
+      --dark:    #44403C;
+      --gold:    #c7a98b;
+      --gold-lt: #d4b99e;
+      --bg:      #FAFAF9;
+      --text:    #0C0A09;
+      --muted:   #78716C;
+      --border:  #E7E5E4;
+      --white:   #FFFFFF;
+      --nav-h:   72px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.65; color: var(--text); background: var(--bg); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Bodoni Moda', serif; line-height: 1.15; letter-spacing: -0.01em; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    [data-lang="fr"] { display: none !important; }
+    body.fr [data-lang="nl"] { display: none !important; }
+    body.fr [data-lang="fr"] { display: revert !important; }
+
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2.5rem); }
+
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 2rem; font-family: 'Jost', sans-serif; font-size: .9rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 220ms ease, color 220ms ease, transform 180ms ease; border: none; }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.45); }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .btn-dark { background: var(--black); color: var(--white); }
+    .btn-dark:hover { background: var(--dark); }
+
+    .section-label { display: inline-block; font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+
+    /* ── Navbar ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--nav-h); display: flex; align-items: center; background: rgba(28,25,23,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(255,255,255,.06); }
+    .nav .container { padding-left: 1rem; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav__logo { font-family: 'Bodoni Moda', serif; font-size: 1.35rem; color: var(--white); letter-spacing: .03em; }
+    .nav__logo span { color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: .85rem; font-weight: 400; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.8); transition: color 200ms; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__actions { display: flex; align-items: center; gap: 1.25rem; }
+    .lang-switch { display: flex; gap: .35rem; font-size: .78rem; font-weight: 500; }
+    .lang-switch button { background: none; border: none; cursor: pointer; color: rgba(255,255,255,.5); text-transform: uppercase; padding: .2rem .3rem; transition: color 180ms; font-family: 'Jost', sans-serif; font-size: .78rem; letter-spacing: .08em; }
+    .lang-switch button.active, .lang-switch button:hover { color: var(--white); }
+    .lang-switch .sep { color: rgba(255,255,255,.25); align-self: center; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .4rem; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ── Page Hero ── */
+    .page-hero { padding-top: var(--nav-h); background: var(--black); padding-bottom: 5rem; }
+    .page-hero .container { padding-top: clamp(3rem, 6vh, 5rem); }
+    .page-hero__eyebrow { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .page-hero__title { font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--white); font-weight: 500; max-width: 700px; margin-bottom: 1.5rem; }
+    .page-hero__title em { font-style: italic; color: var(--gold); }
+    .page-hero__sub { font-size: 1.05rem; color: rgba(255,255,255,.6); max-width: 520px; font-weight: 300; line-height: 1.7; }
+
+    /* ── Filter bar ── */
+    .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: var(--nav-h); z-index: 40; }
+    .filter-bar .container { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    .filter-bar .container::-webkit-scrollbar { display: none; }
+    .filter-tab { flex-shrink: 0; padding: 1.1rem 1.75rem; font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; transition: color 200ms, border-color 200ms; white-space: nowrap; }
+    .filter-tab:hover { color: var(--text); }
+    .filter-tab.active { color: var(--black); border-bottom-color: var(--gold); }
+
+    /* ── Portfolio sections ── */
+    .portfolio-section { padding: clamp(4rem, 8vh, 6rem) 0; border-bottom: 1px solid var(--border); }
+    .portfolio-section:last-of-type { border-bottom: none; }
+    .portfolio-section:nth-child(even) { background: var(--white); }
+
+    .portfolio-section__header { margin-bottom: 2.5rem; }
+    .portfolio-section__header h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--black); }
+    .portfolio-section__header p { color: var(--muted); font-weight: 300; font-size: 1rem; margin-top: .5rem; max-width: 560px; }
+
+    /* Masonry-style grid */
+    .portfolio-grid { display: grid; gap: 1rem; }
+    .portfolio-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .portfolio-grid--4 .proj-card:first-child { grid-column: span 2; grid-row: span 2; }
+
+    .proj-card { position: relative; overflow: hidden; border-radius: 2px; cursor: pointer; }
+    .proj-card--tall { aspect-ratio: 3/4; }
+    .proj-card--wide { aspect-ratio: 16/9; }
+    .proj-card--square { aspect-ratio: 1; }
+
+    .proj-card img { height: 100%; transition: transform 600ms ease; }
+    .proj-card:hover img { transform: scale(1.06); }
+
+    .proj-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,10,9,.88) 0%, rgba(12,10,9,0) 55%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 350ms ease;
+    }
+    .proj-card:hover .proj-card__overlay { opacity: 1; }
+
+    .proj-card__tag { font-size: .65rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+    .proj-card__name { font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--white); }
+
+    /* Always visible label on cards */
+    .proj-card__label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(to top, rgba(12,10,9,.75) 0%, rgba(12,10,9,0) 100%);
+    }
+    .proj-card__label-tag { font-size: .65rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+    .proj-card__label-name { font-family: 'Bodoni Moda', serif; font-size: 1.1rem; color: var(--white); margin-top: .15rem; }
+
+    /* ── CTA banner ── */
+    .cta-banner { background: var(--black); padding: clamp(4rem, 8vh, 6rem) 0; text-align: center; }
+    .cta-banner h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 1.25rem; }
+    .cta-banner p { color: rgba(255,255,255,.6); font-weight: 300; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-banner__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+    /* ── Footer ── */
+    .footer { background: #0C0A09; padding: 3rem 0 2rem; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer__brand { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 1rem; }
+    .footer__brand span { color: var(--gold); }
+    .footer__tagline { font-size: .88rem; color: rgba(255,255,255,.4); font-weight: 300; line-height: 1.6; max-width: 260px; }
+    .footer__col h4 { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: .6rem; }
+    .footer__col ul li a { font-size: .88rem; color: rgba(255,255,255,.5); transition: color 200ms; }
+    .footer__col ul li a:hover { color: var(--white); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.06); font-size: .8rem; color: rgba(255,255,255,.3); }
+    .footer__social { display: flex; gap: 1rem; }
+    .footer__social a { color: rgba(255,255,255,.4); transition: color 200ms; }
+    .footer__social a:hover { color: var(--white); }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .portfolio-grid--4 { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid--4 .proj-card:first-child { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/7; }
+    }
+    @media (max-width: 768px) {
+      :root { --nav-h: 60px; }
+      .nav__links { display: none; }
+      .nav__burger { display: flex; }
+      .nav__actions .btn { display: none; }
+      .portfolio-grid--4 { grid-template-columns: 1fr 1fr; }
+      .portfolio-grid--4 .proj-card:first-child { grid-column: span 2; aspect-ratio: 16/8; }
+      .footer__grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .portfolio-grid--4 { grid-template-columns: 1fr; }
+      .portfolio-grid--4 .proj-card:first-child { grid-column: auto; aspect-ratio: 3/2; }
+      .filter-tab { padding: .9rem 1.1rem; font-size: .76rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Wood<span>Experience</span></a>
+        <ul class="nav__links">
+          <li><a href="collecties.html" data-lang="nl">Collecties</a><a href="collecties.html" data-lang="fr">Collections</a></li>
+          <li><a href="realisaties.html" class="active" data-lang="nl">Realisaties</a><a href="realisaties.html" class="active" data-lang="fr">Réalisations</a></li>
+          <li><a href="over-ons.html" data-lang="nl">Over ons</a><a href="over-ons.html" data-lang="fr">À propos</a></li>
+          <li><a href="index.html#contact" data-lang="nl">Contact</a><a href="index.html#contact" data-lang="fr">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <div class="lang-switch">
+            <button id="btn-nl" class="active" onclick="setLang('nl')">NL</button>
+            <span class="sep">|</span>
+            <button id="btn-fr" onclick="setLang('fr')">FR</button>
+          </div>
+          <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+          <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__eyebrow" data-lang="nl">Onze projecten</p>
+      <p class="page-hero__eyebrow" data-lang="fr">Nos projets</p>
+      <h1 class="page-hero__title" data-lang="nl">Elk project,<br><em>een eigen verhaal.</em></h1>
+      <h1 class="page-hero__title" data-lang="fr">Chaque projet,<br><em>sa propre histoire.</em></h1>
+      <p class="page-hero__sub" data-lang="nl">Van prestigieuze hotels tot gezellige woningen — Wood Experience levert premium vloeren voor elk type project.</p>
+      <p class="page-hero__sub" data-lang="fr">Des hôtels prestigieux aux maisons chaleureuses — Wood Experience fournit des revêtements premium pour tout type de projet.</p>
+    </div>
+  </section>
+
+  <!-- ── FILTER ── -->
+  <div class="filter-bar">
+    <div class="container">
+      <button class="filter-tab active" onclick="goToSection('hotels')" data-lang="nl">Hotels</button>
+      <button class="filter-tab active" onclick="goToSection('hotels')" data-lang="fr">Hôtels</button>
+      <button class="filter-tab" onclick="goToSection('horeca')" data-lang="nl">Restaurants &amp; Winkels</button>
+      <button class="filter-tab" onclick="goToSection('horeca')" data-lang="fr">Restaurants &amp; Boutiques</button>
+      <button class="filter-tab" onclick="goToSection('residentieel')" data-lang="nl">Residentieel</button>
+      <button class="filter-tab" onclick="goToSection('residentieel')" data-lang="fr">Résidentiel</button>
+    </div>
+  </div>
+
+  <!-- ── HOTELS ── -->
+  <section class="portfolio-section" id="hotels">
+    <div class="container">
+      <div class="portfolio-section__header reveal">
+        <span class="section-label" data-lang="nl">Hotels</span>
+        <span class="section-label" data-lang="fr">Hôtels</span>
+        <h2 data-lang="nl">Luxe vloeren voor de horeca.</h2>
+        <h2 data-lang="fr">Revêtements de luxe pour l'hôtellerie.</h2>
+        <p data-lang="nl">Van boutique hotels tot internationale ketens — onze vloeren bepalen de sfeer van elke ruimte.</p>
+        <p data-lang="fr">Des hôtels boutique aux chaînes internationales — nos revêtements définissent l'atmosphère de chaque espace.</p>
+      </div>
+      <div class="portfolio-grid portfolio-grid--4 reveal">
+        <div class="proj-card proj-card--tall">
+          <img src="images/hotel-01.jpg" alt="Hotel Brugge" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Luxe</p>
+            <p class="proj-card__label-name" data-lang="nl">Hotel Brugge</p>
+            <p class="proj-card__label-name" data-lang="fr">Hôtel Bruges</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--square">
+          <img src="images/hotel-02.jpg" alt="Hotel Brussel" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Craft</p>
+            <p class="proj-card__label-name" data-lang="nl">Hotel Brussel</p>
+            <p class="proj-card__label-name" data-lang="fr">Hôtel Bruxelles</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--square">
+          <img src="images/hotel-04.jpg" alt="Hotel Bali" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Luxe</p>
+            <p class="proj-card__label-name">Hotel Bali</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--wide" style="grid-column: span 2;">
+          <img src="images/hotel-06.jpg" alt="Hotel Gent" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Craft</p>
+            <p class="proj-card__label-name" data-lang="nl">Hotel Gent</p>
+            <p class="proj-card__label-name" data-lang="fr">Hôtel Gand</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESTAURANTS & WINKELS ── -->
+  <section class="portfolio-section" id="horeca">
+    <div class="container">
+      <div class="portfolio-section__header reveal">
+        <span class="section-label" data-lang="nl">Restaurants &amp; Winkels</span>
+        <span class="section-label" data-lang="fr">Restaurants &amp; Boutiques</span>
+        <h2 data-lang="nl">Karakter in elk commercieel project.</h2>
+        <h2 data-lang="fr">Du caractère dans chaque projet commercial.</h2>
+        <p data-lang="nl">Horecazaken en retailers die kiezen voor Wood Experience maken meteen een statement met hun interieur.</p>
+        <p data-lang="fr">Les établissements horeca et commerces qui choisissent Wood Experience font immédiatement une déclaration avec leur intérieur.</p>
+      </div>
+      <div class="portfolio-grid portfolio-grid--4 reveal">
+        <div class="proj-card proj-card--tall">
+          <img src="images/winkelresto-01.jpg" alt="Restaurant Duffel" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Craft</p>
+            <p class="proj-card__label-name" data-lang="nl">Restaurant Duffel</p>
+            <p class="proj-card__label-name" data-lang="fr">Restaurant Duffel</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--square">
+          <img src="images/winkelresto-02.jpg" alt="Winkel Schelle" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Cosy</p>
+            <p class="proj-card__label-name" data-lang="nl">Winkel Schelle</p>
+            <p class="proj-card__label-name" data-lang="fr">Boutique Schelle</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--square">
+          <img src="images/winkelresto-03.jpg" alt="Restaurant Brussel" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Luxe</p>
+            <p class="proj-card__label-name" data-lang="nl">Restaurant Brussel</p>
+            <p class="proj-card__label-name" data-lang="fr">Restaurant Bruxelles</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--wide" style="grid-column: span 2;">
+          <img src="images/winkelresto-04.jpg" alt="Restaurant Antwerpen" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Craft</p>
+            <p class="proj-card__label-name" data-lang="nl">Restaurant Antwerpen</p>
+            <p class="proj-card__label-name" data-lang="fr">Restaurant Anvers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESIDENTIEEL ── -->
+  <section class="portfolio-section" id="residentieel">
+    <div class="container">
+      <div class="portfolio-section__header reveal">
+        <span class="section-label" data-lang="nl">Residentieel</span>
+        <span class="section-label" data-lang="fr">Résidentiel</span>
+        <h2 data-lang="nl">Thuis voelen begint bij de vloer.</h2>
+        <h2 data-lang="fr">Se sentir chez soi commence par le sol.</h2>
+        <p data-lang="nl">Van stadsappartementen tot villa's — Wood Experience maakt van elke woning een thuis met karakter.</p>
+        <p data-lang="fr">Des appartements urbains aux villas — Wood Experience fait de chaque logement un foyer avec du caractère.</p>
+      </div>
+      <div class="portfolio-grid portfolio-grid--4 reveal">
+        <div class="proj-card proj-card--tall">
+          <img src="images/residentieel-01.jpg" alt="Loft Antwerpen" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Craft</p>
+            <p class="proj-card__label-name" data-lang="nl">Loft Antwerpen</p>
+            <p class="proj-card__label-name" data-lang="fr">Loft Anvers</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--square">
+          <img src="images/residentieel-02.jpg" alt="Penthouse Knokke" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Luxe</p>
+            <p class="proj-card__label-name">Penthouse Knokke</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--square">
+          <img src="images/residentieel-03.jpg" alt="Villa Keerbergen" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Luxe</p>
+            <p class="proj-card__label-name">Villa Keerbergen</p>
+          </div>
+        </div>
+        <div class="proj-card proj-card--wide" style="grid-column: span 2;">
+          <img src="images/residentieel-04.jpg" alt="Villa Schelle" loading="lazy" />
+          <div class="proj-card__label">
+            <p class="proj-card__label-tag">Craft</p>
+            <p class="proj-card__label-name">Villa Schelle</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-lang="nl" class="reveal">Uw project op deze lijst?</h2>
+      <h2 data-lang="fr" class="reveal">Votre projet sur cette liste&nbsp;?</h2>
+      <p data-lang="nl" class="reveal">Vraag een offerte aan of bezoek onze showroom. We begeleiden u van materiaaladvies tot oplevering.</p>
+      <p data-lang="fr" class="reveal">Demandez un devis ou visitez notre showroom. Nous vous accompagnons du conseil en matériaux jusqu'à la livraison.</p>
+      <div class="cta-banner__actions reveal">
+        <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+        <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+        <a href="collecties.html" class="btn btn-outline" data-lang="nl">Bekijk collecties</a>
+        <a href="collecties.html" class="btn btn-outline" data-lang="fr">Voir les collections</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__brand">Wood<span>Experience</span></p>
+          <p class="footer__tagline" data-lang="nl">Ambacht, vertrouwen en verfijning — premium parket voor elk project in België.</p>
+          <p class="footer__tagline" data-lang="fr">Artisanat, confiance et raffinement — parquet premium pour chaque projet en Belgique.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Collecties</h4>
+          <h4 data-lang="fr">Collections</h4>
+          <ul>
+            <li><a href="collecties.html#cosy">Cosy</a></li>
+            <li><a href="collecties.html#cosy-vinyl">Cosy Vinyl</a></li>
+            <li><a href="collecties.html#craft">Craft</a></li>
+            <li><a href="collecties.html#luxe">Luxe</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Bedrijf</h4>
+          <h4 data-lang="fr">Entreprise</h4>
+          <ul>
+            <li><a href="over-ons.html" data-lang="nl">Over ons</a><a href="over-ons.html" data-lang="fr">À propos</a></li>
+            <li><a href="realisaties.html" data-lang="nl">Realisaties</a><a href="realisaties.html" data-lang="fr">Réalisations</a></li>
+            <li><a href="index.html#contact" data-lang="nl">Contact</a><a href="index.html#contact" data-lang="fr">Contact</a></li>
+            <li><a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2025 Wood Experience. Bareelstraat 75, 2580 Putte.</span>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.classList.toggle('fr', lang === 'fr');
+      document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('we-lang', lang);
+    }
+    (function() { if (localStorage.getItem('we-lang') === 'fr') setLang('fr'); })();
+
+    // Filter tabs scroll + highlight
+    const sections = ['hotels', 'horeca', 'residentieel'];
+    const tabs = document.querySelectorAll('.filter-tab');
+
+    function updateTabs() {
+      let active = 0;
+      const offset = document.querySelector('.filter-bar').offsetHeight + 72 + 40;
+      sections.forEach(function(id, i) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= offset) active = i;
+      });
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      if (tabs[active * 2]) tabs[active * 2].classList.add('active');
+      if (tabs[active * 2 + 1]) tabs[active * 2 + 1].classList.add('active');
+    }
+    window.addEventListener('scroll', updateTabs, { passive: true });
+
+    function goToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const offset = document.querySelector('.filter-bar').offsetHeight + 72;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const links = document.querySelector('.nav__links');
+    burger.addEventListener('click', function() {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? '' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = 'var(--nav-h)';
+      links.style.left = '0'; links.style.right = '0';
+      links.style.background = 'rgba(28,25,23,.97)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.gap = '1.25rem';
+      burger.setAttribute('aria-expanded', String(!open));
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+  </script>
+</body>
+</html>

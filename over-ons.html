@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Over ons — Wood Experience</title>
+  <meta name="description" content="Leer Wood Experience kennen — 13 professionals gedreven door passie voor hout, vakmanschap en duurzaamheid. Geleid door Stijn Van Woensel vanuit Putte." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #1C1917;
+      --dark:    #44403C;
+      --gold:    #c7a98b;
+      --gold-lt: #d4b99e;
+      --bg:      #FAFAF9;
+      --text:    #0C0A09;
+      --muted:   #78716C;
+      --border:  #E7E5E4;
+      --white:   #FFFFFF;
+      --nav-h:   72px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.65; color: var(--text); background: var(--bg); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Bodoni Moda', serif; line-height: 1.15; letter-spacing: -0.01em; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    [data-lang="fr"] { display: none !important; }
+    body.fr [data-lang="nl"] { display: none !important; }
+    body.fr [data-lang="fr"] { display: revert !important; }
+
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2.5rem); }
+
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 2rem; font-family: 'Jost', sans-serif; font-size: .9rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 220ms ease, color 220ms ease, transform 180ms ease; border: none; }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.45); }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .btn-dark { background: var(--black); color: var(--white); }
+    .btn-dark:hover { background: var(--dark); }
+
+    .section-label { display: inline-block; font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+
+    /* ── Navbar ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--nav-h); display: flex; align-items: center; background: rgba(28,25,23,.96); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(255,255,255,.06); }
+    .nav .container { padding-left: 1rem; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav__logo { font-family: 'Bodoni Moda', serif; font-size: 1.35rem; color: var(--white); letter-spacing: .03em; }
+    .nav__logo span { color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: .85rem; font-weight: 400; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.8); transition: color 200ms; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__actions { display: flex; align-items: center; gap: 1.25rem; }
+    .lang-switch { display: flex; gap: .35rem; font-size: .78rem; font-weight: 500; letter-spacing: .08em; }
+    .lang-switch button { background: none; border: none; cursor: pointer; color: rgba(255,255,255,.5); text-transform: uppercase; padding: .2rem .3rem; transition: color 180ms; font-family: 'Jost', sans-serif; font-size: .78rem; letter-spacing: .08em; }
+    .lang-switch button.active, .lang-switch button:hover { color: var(--white); }
+    .lang-switch .sep { color: rgba(255,255,255,.25); align-self: center; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .4rem; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ── Page Hero ── */
+    .page-hero { padding-top: var(--nav-h); background: var(--black); padding-bottom: 5rem; }
+    .page-hero .container { padding-top: clamp(3rem, 6vh, 5rem); }
+    .page-hero__eyebrow { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .page-hero__title { font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--white); font-weight: 500; max-width: 700px; margin-bottom: 1.5rem; }
+    .page-hero__title em { font-style: italic; color: var(--gold); }
+    .page-hero__sub { font-size: 1.05rem; color: rgba(255,255,255,.6); max-width: 520px; font-weight: 300; line-height: 1.7; }
+
+    /* ── Intro split ── */
+    .intro-split { padding: clamp(5rem, 10vh, 8rem) 0; }
+    .intro-split__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .intro-split__img { aspect-ratio: 4/5; border-radius: 2px; overflow: hidden; }
+    .intro-split__img img { height: 100%; transition: transform 700ms ease; }
+    .intro-split__img:hover img { transform: scale(1.03); }
+    .intro-split__text h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--black); margin-bottom: 1.5rem; }
+    .intro-split__text p { color: var(--muted); font-weight: 300; font-size: 1.05rem; margin-bottom: 1rem; line-height: 1.75; }
+
+    /* ── Quote banner ── */
+    .quote-banner { background: var(--black); padding: clamp(4rem, 8vh, 6rem) 0; text-align: center; }
+    .quote-banner blockquote { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: clamp(1.6rem, 3.5vw, 2.8rem); color: var(--white); max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.3; }
+    .quote-banner blockquote em { color: var(--gold); font-style: normal; }
+    .quote-banner cite { font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); font-style: normal; }
+
+    /* ── Values ── */
+    .values { padding: clamp(5rem, 10vh, 8rem) 0; background: var(--white); }
+    .values__header { text-align: center; margin-bottom: 4rem; }
+    .values__header h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--black); }
+    .values__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .value { padding: 2.5rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 300ms, transform 250ms; }
+    .value:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .value__icon { width: 44px; height: 44px; color: var(--gold); margin-bottom: 1.25rem; }
+    .value__title { font-family: 'Bodoni Moda', serif; font-size: 1.2rem; color: var(--black); margin-bottom: .6rem; }
+    .value__text { font-size: .92rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── Showroom section ── */
+    .showroom-section { padding: clamp(5rem, 10vh, 8rem) 0; }
+    .showroom-section__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .showroom-section__img { aspect-ratio: 4/3; border-radius: 2px; overflow: hidden; }
+    .showroom-section__img img { height: 100%; transition: transform 700ms ease; }
+    .showroom-section__img:hover img { transform: scale(1.03); }
+    .showroom-section__text h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--black); margin-bottom: 1.5rem; }
+    .showroom-section__text p { color: var(--muted); font-weight: 300; font-size: 1.05rem; margin-bottom: 1rem; line-height: 1.75; }
+    .showroom-section__badge { display: inline-block; background: var(--gold); color: var(--white); font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: .35rem .85rem; border-radius: 2px; margin-bottom: 1.5rem; }
+
+    /* ── Team ── */
+    .team { background: var(--black); padding: clamp(5rem, 10vh, 8rem) 0; }
+    .team__header { text-align: center; margin-bottom: 4rem; }
+    .team__header h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--white); }
+    .team__header p { color: rgba(255,255,255,.55); max-width: 480px; margin: 1rem auto 0; font-weight: 300; }
+    .team__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.5rem; }
+    .team-card { text-align: center; }
+    .team-card__img { aspect-ratio: 1; border-radius: 2px; overflow: hidden; margin-bottom: 1rem; }
+    .team-card__img img { height: 100%; transition: transform 500ms ease; filter: grayscale(20%); }
+    .team-card:hover .team-card__img img { transform: scale(1.05); filter: grayscale(0%); }
+    .team-card__name { font-family: 'Bodoni Moda', serif; font-size: 1rem; color: var(--white); }
+    .team-card--founder .team-card__img { border: 2px solid var(--gold); }
+    .team-card--founder .team-card__name { color: var(--gold); }
+    .team-card__role { font-size: .75rem; color: rgba(255,255,255,.45); font-weight: 400; letter-spacing: .06em; margin-top: .2rem; }
+
+    /* ── CTA banner ── */
+    .cta-banner { padding: clamp(4rem, 8vh, 6rem) 0; text-align: center; }
+    .cta-banner h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--black); margin-bottom: 1.25rem; }
+    .cta-banner p { color: var(--muted); font-weight: 300; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-banner__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+    /* ── Footer ── */
+    .footer { background: #0C0A09; padding: 3rem 0 2rem; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer__brand { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 1rem; }
+    .footer__brand span { color: var(--gold); }
+    .footer__tagline { font-size: .88rem; color: rgba(255,255,255,.4); font-weight: 300; line-height: 1.6; max-width: 260px; }
+    .footer__col h4 { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: .6rem; }
+    .footer__col ul li a { font-size: .88rem; color: rgba(255,255,255,.5); transition: color 200ms; }
+    .footer__col ul li a:hover { color: var(--white); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.06); font-size: .8rem; color: rgba(255,255,255,.3); }
+    .footer__social { display: flex; gap: 1rem; }
+    .footer__social a { color: rgba(255,255,255,.4); transition: color 200ms; }
+    .footer__social a:hover { color: var(--white); }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1024px) {
+      .values__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      :root { --nav-h: 60px; }
+      .nav__links { display: none; }
+      .nav__burger { display: flex; }
+      .nav__actions .btn { display: none; }
+      .intro-split__grid, .showroom-section__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .intro-split__img, .showroom-section__img { aspect-ratio: 3/2; }
+      .values__grid { grid-template-columns: 1fr; }
+      .team__grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .footer__grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .team__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Wood<span>Experience</span></a>
+        <ul class="nav__links">
+          <li><a href="collecties.html" data-lang="nl">Collecties</a><a href="collecties.html" data-lang="fr">Collections</a></li>
+          <li><a href="realisaties.html" data-lang="nl">Realisaties</a><a href="realisaties.html" data-lang="fr">Réalisations</a></li>
+          <li><a href="over-ons.html" class="active" data-lang="nl">Over ons</a><a href="over-ons.html" class="active" data-lang="fr">À propos</a></li>
+          <li><a href="index.html#contact" data-lang="nl">Contact</a><a href="index.html#contact" data-lang="fr">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <div class="lang-switch">
+            <button id="btn-nl" class="active" onclick="setLang('nl')">NL</button>
+            <span class="sep">|</span>
+            <button id="btn-fr" onclick="setLang('fr')">FR</button>
+          </div>
+          <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+          <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__eyebrow" data-lang="nl">Wie wij zijn</p>
+      <p class="page-hero__eyebrow" data-lang="fr">Qui nous sommes</p>
+      <h1 class="page-hero__title" data-lang="nl">Passie voor hout,<br><em>mensen achter het merk.</em></h1>
+      <h1 class="page-hero__title" data-lang="fr">La passion du bois,<br><em>les personnes derrière la marque.</em></h1>
+      <p class="page-hero__sub" data-lang="nl">13 professionals, één missie — de perfecte vloer vinden voor elk project. Dat is Wood Experience.</p>
+      <p class="page-hero__sub" data-lang="fr">13 professionnels, une mission — trouver le revêtement parfait pour chaque projet. C'est Wood Experience.</p>
+    </div>
+  </section>
+
+  <!-- ── INTRO SPLIT ── -->
+  <section class="intro-split">
+    <div class="container">
+      <div class="intro-split__grid reveal">
+        <div class="intro-split__img">
+          <img src="images/stijn-copy.jpg" alt="Stijn Van Woensel — oprichter Wood Experience" loading="lazy" />
+        </div>
+        <div class="intro-split__text">
+          <span class="section-label" data-lang="nl">Ons verhaal</span>
+          <span class="section-label" data-lang="fr">Notre histoire</span>
+          <h2 data-lang="nl">Geworteld in de parketwereld.</h2>
+          <h2 data-lang="fr">Enraciné dans le monde du parquet.</h2>
+          <p data-lang="nl">Wood Experience is opgericht door Stijn Van Woensel, iemand met diepe wortels in de parketindustrie. Wat begon als een passie voor hout groeide uit tot een volwaardige groothandel die professionals en particulieren in heel België bedient.</p>
+          <p data-lang="fr">Wood Experience a été fondé par Stijn Van Woensel, une personne profondément enracinée dans l'industrie du parquet. Ce qui a commencé comme une passion pour le bois est devenu un grossiste à part entière au service des professionnels et des particuliers dans toute la Belgique.</p>
+          <p data-lang="nl">Wij begrijpen de noden van parketleggers als geen ander. Onze oplossingen zijn op maat van elk project — van materiaaladvies tot snelle levering. Dat vertrouwen bouwen wij op met elke bestelling opnieuw.</p>
+          <p data-lang="fr">Nous comprenons les besoins des poseurs de parquet comme personne d'autre. Nos solutions sont adaptées à chaque projet — du conseil en matériaux à la livraison rapide. Nous construisons cette confiance à chaque commande.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE ── -->
+  <div class="quote-banner">
+    <div class="container">
+      <blockquote class="reveal">"Wij brengen Wood met heel wat <em>Experience.</em>"</blockquote>
+      <cite>— Stijn Van Woensel, oprichter Wood Experience</cite>
+    </div>
+  </div>
+
+  <!-- ── WAARDEN ── -->
+  <section class="values">
+    <div class="container">
+      <div class="values__header reveal">
+        <span class="section-label" data-lang="nl">Onze waarden</span>
+        <span class="section-label" data-lang="fr">Nos valeurs</span>
+        <h2 data-lang="nl">Wat ons drijft, elke dag opnieuw.</h2>
+        <h2 data-lang="fr">Ce qui nous motive, chaque jour.</h2>
+      </div>
+      <div class="values__grid">
+        <div class="value reveal">
+          <svg class="value__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <h3 class="value__title" data-lang="nl">Vakmanschap</h3>
+          <h3 class="value__title" data-lang="fr">Savoir-faire</h3>
+          <p class="value__text" data-lang="nl">Planken worden vaak handmatig verwerkt voor een onderscheidend resultaat. Elk detail telt — van selectie tot levering.</p>
+          <p class="value__text" data-lang="fr">Les planches sont souvent traitées manuellement pour un résultat distinctif. Chaque détail compte — de la sélection à la livraison.</p>
+        </div>
+        <div class="value reveal">
+          <svg class="value__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3 class="value__title" data-lang="nl">Duurzaamheid</h3>
+          <h3 class="value__title" data-lang="fr">Durabilité</h3>
+          <p class="value__text" data-lang="nl">Wij werken uitsluitend met hout uit verantwoord beheerde bossen, met strikte ecologische controle. Goed voor u, goed voor de planeet.</p>
+          <p class="value__text" data-lang="fr">Nous travaillons exclusivement avec du bois issu de forêts gérées de manière responsable, avec un contrôle écologique strict. Bon pour vous, bon pour la planète.</p>
+        </div>
+        <div class="value reveal">
+          <svg class="value__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3 class="value__title" data-lang="nl">Partnerschap</h3>
+          <h3 class="value__title" data-lang="fr">Partenariat</h3>
+          <p class="value__text" data-lang="nl">Langdurige relaties op basis van vertrouwen, kwaliteit en service — met leveranciers én klanten. Wij zijn er van begin tot einde.</p>
+          <p class="value__text" data-lang="fr">Des relations durables fondées sur la confiance, la qualité et le service — avec les fournisseurs et les clients. Nous sommes là du début à la fin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHOWROOM ── -->
+  <section class="showroom-section">
+    <div class="container">
+      <div class="showroom-section__grid reveal">
+        <div class="showroom-section__img">
+          <img src="images/toonzaal.jpg" alt="Wood Experience showroom Putte" loading="lazy" />
+        </div>
+        <div class="showroom-section__text">
+          <span class="showroom-section__badge" data-lang="nl">Geopend in 2024</span>
+          <span class="showroom-section__badge" data-lang="fr">Ouvert en 2024</span>
+          <span class="section-label" data-lang="nl">Onze showroom</span>
+          <span class="section-label" data-lang="fr">Notre showroom</span>
+          <h2 data-lang="nl">Zie, voel en ervaar het verschil.</h2>
+          <h2 data-lang="fr">Voyez, touchez et ressentez la différence.</h2>
+          <p data-lang="nl">Onze showroom in Putte is een inspirerende ervaringsruimte waar u de volledige collectie parketvloeren kan ontdekken. Voel de verschillende houtsoorten, afwerkingen en legpatronen — met persoonlijk advies van ons team.</p>
+          <p data-lang="fr">Notre showroom à Putte est un espace d'expérience inspirant où vous pouvez découvrir la collection complète de parquets. Touchez les différentes essences, finitions et motifs de pose — avec les conseils personnalisés de notre équipe.</p>
+          <p data-lang="nl">Bezoeken op afspraak, zodat u alle tijd en aandacht krijgt die uw project verdient.</p>
+          <p data-lang="fr">Visites sur rendez-vous, pour que vous receviez toute l'attention que votre projet mérite.</p>
+          <div style="margin-top:1.75rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Afspraak maken</a>
+            <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Prendre rendez-vous</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="nl">Info showroom</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="fr">Info showroom</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="team">
+    <div class="container">
+      <div class="team__header reveal">
+        <span class="section-label" data-lang="nl">Ons team</span>
+        <span class="section-label" data-lang="fr">Notre équipe</span>
+        <h2 data-lang="nl">13 mensen, één passie.</h2>
+        <h2 data-lang="fr">13 personnes, une passion.</h2>
+        <p data-lang="nl">Elk teamlid brengt gespecialiseerd talent en echte gedrevenheid mee om de beloften aan onze klanten waar te maken.</p>
+        <p data-lang="fr">Chaque membre apporte un talent spécialisé et une vraie passion pour tenir les promesses faites à nos clients.</p>
+      </div>
+      <div class="team__grid reveal">
+        <div class="team-card team-card--founder">
+          <div class="team-card__img">
+            <img src="images/team-1752.jpg" alt="Stijn Van Woensel" loading="lazy" />
+          </div>
+          <p class="team-card__name">Stijn Van Woensel</p>
+          <p class="team-card__role" data-lang="nl">Oprichter</p>
+          <p class="team-card__role" data-lang="fr">Fondateur</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1753.jpg" alt="Patrik De Vos" loading="lazy" /></div>
+          <p class="team-card__name">Patrik De Vos</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1754.jpg" alt="Kris Van Orshoven" loading="lazy" /></div>
+          <p class="team-card__name">Kris Van Orshoven</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1755.jpg" alt="Omer Elen" loading="lazy" /></div>
+          <p class="team-card__name">Omer Elen</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1756.jpg" alt="Michiel Roegies" loading="lazy" /></div>
+          <p class="team-card__name">Michiel Roegies</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1757.jpg" alt="Natascha Wauters" loading="lazy" /></div>
+          <p class="team-card__name">Natascha Wauters</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1758.jpg" alt="Ronny Nauwelaerts" loading="lazy" /></div>
+          <p class="team-card__name">Ronny Nauwelaerts</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1759.jpg" alt="Bruno Cornelis" loading="lazy" /></div>
+          <p class="team-card__name">Bruno Cornelis</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1760.jpg" alt="Toine Stikkers" loading="lazy" /></div>
+          <p class="team-card__name">Toine Stikkers</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1761.jpg" alt="Sven Cammaerts" loading="lazy" /></div>
+          <p class="team-card__name">Sven Cammaerts</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1762.jpg" alt="Leo Van Dessel" loading="lazy" /></div>
+          <p class="team-card__name">Leo Van Dessel</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1763.jpg" alt="Bertrand Matkoski" loading="lazy" /></div>
+          <p class="team-card__name">Bertrand Matkoski</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img"><img src="images/team-1764.jpg" alt="Lowie Van Woensel" loading="lazy" /></div>
+          <p class="team-card__name">Lowie Van Woensel</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-banner">
+    <div class="container">
+      <span class="section-label" data-lang="nl">Klaar om te starten?</span>
+      <span class="section-label" data-lang="fr">Prêt à commencer?</span>
+      <h2 data-lang="nl" class="reveal">Ontmoet ons team in de showroom.</h2>
+      <h2 data-lang="fr" class="reveal">Rencontrez notre équipe au showroom.</h2>
+      <p data-lang="nl" class="reveal">Maak een afspraak en kom de collecties ontdekken. We begeleiden u persoonlijk naar de perfecte vloer.</p>
+      <p data-lang="fr" class="reveal">Prenez rendez-vous et venez découvrir les collections. Nous vous guidons personnellement vers le revêtement parfait.</p>
+      <div class="cta-banner__actions reveal">
+        <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Afspraak maken</a>
+        <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Prendre rendez-vous</a>
+        <a href="realisaties.html" class="btn btn-dark" data-lang="nl">Bekijk realisaties</a>
+        <a href="realisaties.html" class="btn btn-dark" data-lang="fr">Voir les réalisations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__brand">Wood<span>Experience</span></p>
+          <p class="footer__tagline" data-lang="nl">Ambacht, vertrouwen en verfijning — premium parket voor elk project in België.</p>
+          <p class="footer__tagline" data-lang="fr">Artisanat, confiance et raffinement — parquet premium pour chaque projet en Belgique.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Collecties</h4>
+          <h4 data-lang="fr">Collections</h4>
+          <ul>
+            <li><a href="collecties.html#cosy">Cosy</a></li>
+            <li><a href="collecties.html#cosy-vinyl">Cosy Vinyl</a></li>
+            <li><a href="collecties.html#craft">Craft</a></li>
+            <li><a href="collecties.html#luxe">Luxe</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Bedrijf</h4>
+          <h4 data-lang="fr">Entreprise</h4>
+          <ul>
+            <li><a href="over-ons.html" data-lang="nl">Over ons</a><a href="over-ons.html" data-lang="fr">À propos</a></li>
+            <li><a href="realisaties.html" data-lang="nl">Realisaties</a><a href="realisaties.html" data-lang="fr">Réalisations</a></li>
+            <li><a href="index.html#contact" data-lang="nl">Contact</a><a href="index.html#contact" data-lang="fr">Contact</a></li>
+            <li><a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2025 Wood Experience. Bareelstraat 75, 2580 Putte.</span>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.classList.toggle('fr', lang === 'fr');
+      document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('we-lang', lang);
+    }
+    (function() { if (localStorage.getItem('we-lang') === 'fr') setLang('fr'); })();
+
+    const burger = document.getElementById('burger');
+    const links = document.querySelector('.nav__links');
+    burger.addEventListener('click', function() {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? '' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = 'var(--nav-h)';
+      links.style.left = '0'; links.style.right = '0';
+      links.style.background = 'rgba(28,25,23,.97)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.gap = '1.25rem';
+      burger.setAttribute('aria-expanded', String(!open));
+    });
+
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+  </script>
+</body>
+</html>
