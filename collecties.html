@@ -388,14 +388,14 @@
   <!-- ── FILTER BAR ── -->
   <div class="filter-bar" role="navigation" aria-label="Collectie navigatie">
     <div class="container">
-      <button class="filter-tab active" onclick="scrollTo('cosy')" data-lang="nl">Cosy Parket</button>
-      <button class="filter-tab active" onclick="scrollTo('cosy')" data-lang="fr">Cosy Parquet</button>
-      <button class="filter-tab" onclick="scrollTo('cosy-vinyl')" data-lang="nl">Cosy Vinyl</button>
-      <button class="filter-tab" onclick="scrollTo('cosy-vinyl')" data-lang="fr">Cosy Vinyl</button>
-      <button class="filter-tab" onclick="scrollTo('craft')" data-lang="nl">Craft</button>
-      <button class="filter-tab" onclick="scrollTo('craft')" data-lang="fr">Craft</button>
-      <button class="filter-tab" onclick="scrollTo('luxe')" data-lang="nl">Luxe</button>
-      <button class="filter-tab" onclick="scrollTo('luxe')" data-lang="fr">Luxe</button>
+      <button class="filter-tab active" onclick="goToSection('cosy')" data-lang="nl">Cosy Parket</button>
+      <button class="filter-tab active" onclick="goToSection('cosy')" data-lang="fr">Cosy Parquet</button>
+      <button class="filter-tab" onclick="goToSection('cosy-vinyl')" data-lang="nl">Cosy Vinyl</button>
+      <button class="filter-tab" onclick="goToSection('cosy-vinyl')" data-lang="fr">Cosy Vinyl</button>
+      <button class="filter-tab" onclick="goToSection('craft')" data-lang="nl">Craft</button>
+      <button class="filter-tab" onclick="goToSection('craft')" data-lang="fr">Craft</button>
+      <button class="filter-tab" onclick="goToSection('luxe')" data-lang="nl">Luxe</button>
+      <button class="filter-tab" onclick="goToSection('luxe')" data-lang="fr">Luxe</button>
     </div>
   </div>
 
@@ -729,7 +729,7 @@
 
     window.addEventListener('scroll', updateTabs, { passive: true });
 
-    function scrollTo(id) {
+    function goToSection(id) {
       const el = document.getElementById(id);
       if (!el) return;
       const offset = document.querySelector('.filter-bar').offsetHeight + 72;
