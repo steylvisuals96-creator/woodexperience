@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wood Experience — Parket & Parket Vinyl</title>
+  <meta name="description" content="Wood Experience — groothandel in premium parket en parket vinyl. Ambacht, vertrouwen en verfijning voor professionals en particulieren in België." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ───────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #1C1917;
+      --dark:    #44403C;
+      --gold:    #CA8A04;
+      --gold-lt: #D4A017;
+      --bg:      #FAFAF9;
+      --text:    #0C0A09;
+      --muted:   #78716C;
+      --border:  #E7E5E4;
+      --white:   #FFFFFF;
+      --nav-h:   72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Bodoni Moda', serif;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── Language toggle ─────────────────────────── */
+    [data-lang="fr"] { display: none; }
+    body.fr [data-lang="nl"] { display: none; }
+    body.fr [data-lang="fr"] { display: revert; }
+
+    /* ── Utility ─────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 220ms ease, color 220ms ease, transform 180ms ease;
+      border: none;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.45);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+    .btn-dark:hover { background: var(--dark); }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Navbar ──────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      transition: background 300ms, box-shadow 300ms;
+    }
+    .nav.scrolled {
+      background: rgba(28, 25, 23, .96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav__logo {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.35rem;
+      color: var(--white);
+      letter-spacing: .03em;
+    }
+    .nav__logo span { color: var(--gold); }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav__links a {
+      font-size: .85rem;
+      font-weight: 400;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.8);
+      transition: color 200ms;
+    }
+    .nav__links a:hover { color: var(--white); }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: flex;
+      gap: .35rem;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+    }
+    .lang-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(255,255,255,.5);
+      text-transform: uppercase;
+      padding: .2rem .3rem;
+      transition: color 180ms;
+      font-family: 'Jost', sans-serif;
+      font-size: .78rem;
+      letter-spacing: .08em;
+    }
+    .lang-switch button.active,
+    .lang-switch button:hover { color: var(--white); }
+    .lang-switch .sep { color: rgba(255,255,255,.25); align-self: center; }
+
+    /* Mobile menu toggle */
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .4rem;
+    }
+    .nav__burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      transition: transform 260ms, opacity 260ms;
+      border-radius: 2px;
+    }
+
+    /* ── Hero ────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero__slides {
+      position: absolute;
+      inset: 0;
+    }
+    .hero__slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1000ms ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .hero__slide.active { opacity: 1; }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(12,10,9,.82) 0%,
+        rgba(12,10,9,.4) 50%,
+        rgba(12,10,9,.15) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding-bottom: clamp(3rem, 8vh, 6rem);
+      width: 100%;
+    }
+
+    .hero__eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero__title {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      color: var(--white);
+      font-weight: 500;
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.75);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Slide indicators */
+    .hero__dots {
+      position: absolute;
+      bottom: 2rem;
+      right: clamp(1.25rem, 5vw, 2.5rem);
+      z-index: 3;
+      display: flex;
+      gap: .5rem;
+    }
+    .hero__dot {
+      width: 28px;
+      height: 2px;
+      background: rgba(255,255,255,.3);
+      border: none;
+      cursor: pointer;
+      transition: background 300ms, width 300ms;
+      border-radius: 2px;
+    }
+    .hero__dot.active {
+      background: var(--gold);
+      width: 48px;
+    }
+
+    /* ── Stats bar ───────────────────────────────── */
+    .stats {
+      background: var(--black);
+      color: var(--white);
+      padding: 2.5rem 0;
+    }
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat__num {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat__label {
+      font-size: .8rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-top: .4rem;
+    }
+
+    /* ── Intro ───────────────────────────────────── */
+    .intro {
+      padding: clamp(5rem, 10vh, 8rem) 0;
+    }
+    .intro__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .intro__img {
+      aspect-ratio: 4/5;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .intro__img img { height: 100%; transition: transform 600ms ease; }
+    .intro__img:hover img { transform: scale(1.03); }
+
+    .intro__text h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+    .intro__text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+    .intro__text .btn { margin-top: 1.5rem; }
+
+    /* ── Collections ─────────────────────────────── */
+    .collections {
+      background: var(--black);
+      padding: clamp(5rem, 10vh, 8rem) 0;
+    }
+    .collections__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .collections__header h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--white);
+    }
+    .collections__header p {
+      color: rgba(255,255,255,.55);
+      max-width: 520px;
+      margin: 1rem auto 0;
+      font-weight: 300;
+    }
+
+    .collections__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .col-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .col-card img {
+      height: 100%;
+      transition: transform 600ms ease;
+    }
+    .col-card:hover img { transform: scale(1.06); }
+
+    .col-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,10,9,.88) 0%, rgba(12,10,9,.1) 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      transition: background 400ms;
+    }
+    .col-card:hover .col-card__overlay {
+      background: linear-gradient(to top, rgba(12,10,9,.94) 0%, rgba(12,10,9,.2) 55%);
+    }
+
+    .col-card__tag {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+    .col-card__name {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: .6rem;
+    }
+    .col-card__desc {
+      font-size: .88rem;
+      color: rgba(255,255,255,.65);
+      font-weight: 300;
+      line-height: 1.55;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 400ms ease;
+    }
+    .col-card:hover .col-card__desc { max-height: 100px; }
+
+    .col-card__arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 1rem;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 300ms, transform 300ms;
+    }
+    .col-card:hover .col-card__arrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── USPs ────────────────────────────────────── */
+    .usps {
+      padding: clamp(5rem, 10vh, 8rem) 0;
+    }
+    .usps__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .usps__header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--black);
+    }
+
+    .usps__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .usp {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: border-color 300ms, box-shadow 300ms, transform 250ms;
+    }
+    .usp:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(0,0,0,.07);
+      transform: translateY(-3px);
+    }
+
+    .usp__icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.5rem;
+      color: var(--gold);
+    }
+    .usp__title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.2rem;
+      color: var(--black);
+      margin-bottom: .65rem;
+    }
+    .usp__text {
+      font-size: .92rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* ── Showroom CTA ────────────────────────────── */
+    .showroom {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+    .showroom__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/showroom.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .showroom__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(12,10,9,.88) 45%, rgba(12,10,9,.45) 100%);
+    }
+    .showroom__content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+    .showroom__content h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .showroom__content p {
+      color: rgba(255,255,255,.7);
+      font-weight: 300;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .showroom__info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .showroom__detail {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      color: rgba(255,255,255,.7);
+      font-size: .9rem;
+    }
+    .showroom__detail svg { color: var(--gold); flex-shrink: 0; }
+
+    /* ── Testimonials ────────────────────────────── */
+    .testimonials {
+      background: var(--bg);
+      padding: clamp(5rem, 10vh, 8rem) 0;
+    }
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .testimonials__header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--black);
+    }
+
+    .testi__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testi {
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: var(--white);
+      transition: box-shadow 300ms, transform 250ms;
+    }
+    .testi:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,.06);
+      transform: translateY(-2px);
+    }
+
+    .testi__stars {
+      display: flex;
+      gap: .2rem;
+      margin-bottom: 1.25rem;
+      color: var(--gold);
+    }
+    .testi__quote {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .testi__author {
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .testi__role {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: .2rem;
+    }
+
+    /* ── Contact form ────────────────────────────── */
+    .contact {
+      background: var(--black);
+      padding: clamp(5rem, 10vh, 8rem) 0;
+    }
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact__left h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .contact__left p {
+      color: rgba(255,255,255,.6);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .contact__detail {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      color: rgba(255,255,255,.7);
+      font-size: .92rem;
+      margin-bottom: 1rem;
+    }
+    .contact__detail svg { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+
+    /* Form */
+    .form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form__group { display: flex; flex-direction: column; gap: .4rem; }
+    .form__group label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    .form__group input,
+    .form__group select,
+    .form__group textarea {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 2px;
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: .95rem;
+      padding: .85rem 1rem;
+      outline: none;
+      transition: border-color 200ms;
+      width: 100%;
+    }
+    .form__group input::placeholder,
+    .form__group textarea::placeholder { color: rgba(255,255,255,.25); }
+    .form__group input:focus,
+    .form__group select:focus,
+    .form__group textarea:focus { border-color: var(--gold); }
+    .form__group textarea { resize: vertical; min-height: 120px; }
+    .form__group select option { background: var(--black); }
+
+    /* ── Footer ──────────────────────────────────── */
+    .footer {
+      background: #0C0A09;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer__brand {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer__brand span { color: var(--gold); }
+    .footer__tagline {
+      font-size: .88rem;
+      color: rgba(255,255,255,.4);
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+    .footer__col h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .footer__col ul { display: flex; flex-direction: column; gap: .6rem; }
+    .footer__col ul li a {
+      font-size: .88rem;
+      color: rgba(255,255,255,.5);
+      transition: color 200ms;
+    }
+    .footer__col ul li a:hover { color: var(--white); }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      font-size: .8rem;
+      color: rgba(255,255,255,.3);
+    }
+    .footer__social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer__social a {
+      color: rgba(255,255,255,.4);
+      transition: color 200ms;
+    }
+    .footer__social a:hover { color: var(--white); }
+
+    /* ── Scroll-reveal ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ──────────────────────────────── */
+    @media (max-width: 1024px) {
+      .collections__grid { grid-template-columns: repeat(2, 1fr); }
+      .col-card:last-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
+      .intro__grid { gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__burger { display: flex; }
+
+      .collections__grid { grid-template-columns: 1fr; }
+      .col-card { aspect-ratio: 4/3; }
+      .col-card:last-child { grid-column: auto; aspect-ratio: 4/3; }
+
+      .intro__grid { grid-template-columns: 1fr; }
+      .intro__img { aspect-ratio: 16/9; }
+
+      .contact__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form__row { grid-template-columns: 1fr; }
+
+      .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+      .hero__title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ─────────────────────────────────────── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Hoofdnavigatie">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" aria-label="Wood Experience home">
+          Wood<span>Experience</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="#collecties" data-lang="nl">Collecties</a><a href="#collecties" data-lang="fr">Collections</a></li>
+          <li><a href="#voordelen" data-lang="nl">Voordelen</a><a href="#voordelen" data-lang="fr">Avantages</a></li>
+          <li><a href="#showroom" data-lang="nl">Showroom</a><a href="#showroom" data-lang="fr">Showroom</a></li>
+          <li><a href="#contact" data-lang="nl">Contact</a><a href="#contact" data-lang="fr">Contact</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <div class="lang-switch" role="group" aria-label="Taal kiezen">
+            <button id="btn-nl" class="active" onclick="setLang('nl')" aria-label="Nederlands">NL</button>
+            <span class="sep">|</span>
+            <button id="btn-fr" onclick="setLang('fr')" aria-label="Français">FR</button>
+          </div>
+          <a href="#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+          <a href="#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+        </div>
+
+        <button class="nav__burger" id="burger" aria-label="Menu openen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero sectie">
+    <div class="hero__slides" id="slides" aria-hidden="true">
+      <div class="hero__slide active" style="background-image:url('images/2177.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('images/2178.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('images/2180.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('images/2179.jpg')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="container">
+      <div class="hero__content">
+        <!-- NL -->
+        <div data-lang="nl">
+          <p class="hero__eyebrow">Parket &amp; Parket Vinyl — Groothandel België</p>
+          <h1 class="hero__title">Ambacht in hout,<br><em>verfijning in elk detail.</em></h1>
+          <p class="hero__sub">Van klassiek eiken tot exclusieve exotische houtsoorten — Wood Experience levert premium vloeren voor professionals en particulieren die kiezen voor het beste.</p>
+          <div class="hero__ctas">
+            <a href="#collecties" class="btn btn-gold">Ontdek collecties</a>
+            <a href="#showroom" class="btn btn-outline">Bezoek showroom</a>
+          </div>
+        </div>
+        <!-- FR -->
+        <div data-lang="fr">
+          <p class="hero__eyebrow">Parquet &amp; Parquet Vinyl — Grossiste Belgique</p>
+          <h1 class="hero__title">L'art du bois,<br><em>la finesse dans chaque détail.</em></h1>
+          <p class="hero__sub">Du chêne classique aux essences exotiques exclusives — Wood Experience fournit des revêtements premium pour les professionnels et les particuliers qui exigent le meilleur.</p>
+          <div class="hero__ctas">
+            <a href="#collecties" class="btn btn-gold">Découvrir les collections</a>
+            <a href="#showroom" class="btn btn-outline">Visiter le showroom</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide dots -->
+    <div class="hero__dots" role="tablist" aria-label="Afbeelding slides">
+      <button class="hero__dot active" role="tab" aria-selected="true" aria-label="Slide 1" onclick="goSlide(0)"></button>
+      <button class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 2" onclick="goSlide(1)"></button>
+      <button class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 3" onclick="goSlide(2)"></button>
+      <button class="hero__dot" role="tab" aria-selected="false" aria-label="Slide 4" onclick="goSlide(3)"></button>
+    </div>
+  </section>
+
+  <!-- ── STATS ────────────────────────────────────── -->
+  <section class="stats" aria-label="Cijfers">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="reveal">
+          <p class="stat__num">3</p>
+          <p class="stat__label" data-lang="nl">Exclusieve collecties</p>
+          <p class="stat__label" data-lang="fr">Collections exclusives</p>
+        </div>
+        <div class="reveal">
+          <p class="stat__num">100%</p>
+          <p class="stat__label" data-lang="nl">Belgische service</p>
+          <p class="stat__label" data-lang="fr">Service belge</p>
+        </div>
+        <div class="reveal">
+          <p class="stat__num">B2B</p>
+          <p class="stat__label" data-lang="nl">+&nbsp;Particulieren</p>
+          <p class="stat__label" data-lang="fr">+&nbsp;Particuliers</p>
+        </div>
+        <div class="reveal">
+          <p class="stat__num">Putte</p>
+          <p class="stat__label" data-lang="nl">Showroom Antwerpen</p>
+          <p class="stat__label" data-lang="fr">Showroom Anvers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INTRO ────────────────────────────────────── -->
+  <section class="intro" id="intro">
+    <div class="container">
+      <div class="intro__grid">
+        <div class="intro__img reveal">
+          <img
+            src="images/intro.jpg"
+            alt="Wood Experience — vakmanschap in parket"
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__text reveal">
+          <!-- NL -->
+          <div data-lang="nl">
+            <span class="section-label">Wie wij zijn</span>
+            <h2>Passie voor hout, vertrouwen in elk project.</h2>
+            <p>Wood Experience is een Belgische groothandel gespecialiseerd in hoogwaardig parket en parket vinyl. We geloven dat de vloer de ziel van een ruimte is — en die verdient de beste materialen.</p>
+            <p>Of u nu een particulier bent die zijn droomhuis inricht, of een professional die op zoek is naar een betrouwbare partner: wij staan voor kwaliteit, snelle levering en deskundig advies.</p>
+            <a href="#collecties" class="btn btn-dark">Bekijk onze collecties</a>
+          </div>
+          <!-- FR -->
+          <div data-lang="fr">
+            <span class="section-label">Qui nous sommes</span>
+            <h2>Passion du bois, confiance à chaque projet.</h2>
+            <p>Wood Experience est un grossiste belge spécialisé dans le parquet et le parquet vinyl haut de gamme. Nous croyons que le sol est l'âme d'un espace — il mérite les meilleurs matériaux.</p>
+            <p>Que vous soyez un particulier aménageant la maison de vos rêves ou un professionnel en quête d'un partenaire fiable : nous garantissons qualité, livraison rapide et conseils experts.</p>
+            <a href="#collecties" class="btn btn-dark">Découvrir nos collections</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLLECTIONS ──────────────────────────────── -->
+  <section class="collections" id="collecties">
+    <div class="container">
+      <div class="collections__header reveal">
+        <span class="section-label" data-lang="nl">Onze collecties</span>
+        <span class="section-label" data-lang="fr">Nos collections</span>
+        <h2 data-lang="nl">Kies uw stijl, wij leveren het vakmanschap.</h2>
+        <h2 data-lang="fr">Choisissez votre style, nous fournissons le savoir-faire.</h2>
+        <p data-lang="nl">Drie lijnen, één standaard: het beste hout voor elk project en elk budget.</p>
+        <p data-lang="fr">Trois gammes, un seul standard : le meilleur bois pour chaque projet et chaque budget.</p>
+      </div>
+
+      <div class="collections__grid">
+        <!-- Cosy -->
+        <article class="col-card reveal" tabindex="0" role="button" aria-label="Cosy collectie">
+          <img
+            src="images/cosy-parket.jpg"
+            alt="Cosy Parket collectie"
+            loading="lazy"
+          />
+          <div class="col-card__overlay">
+            <span class="col-card__tag" data-lang="nl">Toegankelijk &amp; Stijlvol</span>
+            <span class="col-card__tag" data-lang="fr">Accessible &amp; Élégant</span>
+            <h3 class="col-card__name">Cosy</h3>
+            <p class="col-card__desc" data-lang="nl">Voorgelakt parket en vinyl met slimme oplossingen die esthetiek combineren met een scherpe prijs.</p>
+            <p class="col-card__desc" data-lang="fr">Parquet pré-verni et vinyl aux solutions intelligentes alliant esthétique et prix compétitif.</p>
+            <span class="col-card__arrow" aria-hidden="true">
+              Ontdekken
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Craft -->
+        <article class="col-card reveal" tabindex="0" role="button" aria-label="Craft collectie">
+          <img
+            src="images/craft.jpg"
+            alt="Craft eiken parket collectie"
+            loading="lazy"
+          />
+          <div class="col-card__overlay">
+            <span class="col-card__tag" data-lang="nl">Ambacht &amp; Maatwerk</span>
+            <span class="col-card__tag" data-lang="fr">Artisanat &amp; Sur-mesure</span>
+            <h3 class="col-card__name">Craft</h3>
+            <p class="col-card__desc" data-lang="nl">Maatwerk eiken parket — planken, visgraatmotief en chevronpatronen voor ambachtelijke projecten.</p>
+            <p class="col-card__desc" data-lang="fr">Parquet en chêne sur mesure — planches, point de Hongrie et chevrons pour projets artisanaux.</p>
+            <span class="col-card__arrow" aria-hidden="true">
+              Ontdekken
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- Luxe -->
+        <article class="col-card reveal" tabindex="0" role="button" aria-label="Luxe collectie">
+          <img
+            src="images/luxe.jpg"
+            alt="Luxe exclusief parket collectie"
+            loading="lazy"
+          />
+          <div class="col-card__overlay">
+            <span class="col-card__tag" data-lang="nl">Exclusief &amp; Prestigieus</span>
+            <span class="col-card__tag" data-lang="fr">Exclusif &amp; Prestigieux</span>
+            <h3 class="col-card__name">Luxe</h3>
+            <p class="col-card__desc" data-lang="nl">Exclusieve vloeren van premium houtsoorten voor prestigieuze installaties. Geen compromissen.</p>
+            <p class="col-card__desc" data-lang="fr">Revêtements exclusifs en essences premium pour des installations prestigieuses. Zéro compromis.</p>
+            <span class="col-card__arrow" aria-hidden="true">
+              Découvrir
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── USPs ─────────────────────────────────────── -->
+  <section class="usps" id="voordelen">
+    <div class="container">
+      <div class="usps__header reveal">
+        <span class="section-label" data-lang="nl">Waarom Wood Experience</span>
+        <span class="section-label" data-lang="fr">Pourquoi Wood Experience</span>
+        <h2 data-lang="nl">De standaard voor premium parket in België.</h2>
+        <h2 data-lang="fr">La référence du parquet premium en Belgique.</h2>
+      </div>
+
+      <div class="usps__grid">
+        <!-- USP 1 -->
+        <div class="usp reveal">
+          <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          <h3 class="usp__title" data-lang="nl">3 Exclusieve collecties</h3>
+          <h3 class="usp__title" data-lang="fr">3 Collections exclusives</h3>
+          <p class="usp__text" data-lang="nl">Cosy, Craft en Luxe — elke lijn is zorgvuldig samengesteld voor een specifiek project en budget.</p>
+          <p class="usp__text" data-lang="fr">Cosy, Craft et Luxe — chaque gamme est soigneusement conçue pour un projet et un budget spécifiques.</p>
+        </div>
+
+        <!-- USP 2 -->
+        <div class="usp reveal">
+          <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <h3 class="usp__title" data-lang="nl">Snelle logistiek</h3>
+          <h3 class="usp__title" data-lang="fr">Logistique rapide</h3>
+          <p class="usp__text" data-lang="nl">Efficiënte levering zodat uw project nooit vertraging oploopt. Betrouwbaar, elke keer opnieuw.</p>
+          <p class="usp__text" data-lang="fr">Livraison efficace pour que votre projet ne connaisse jamais de retard. Fiable, à chaque fois.</p>
+        </div>
+
+        <!-- USP 3 -->
+        <div class="usp reveal">
+          <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h3 class="usp__title" data-lang="nl">B2B &amp; Particulieren</h3>
+          <h3 class="usp__title" data-lang="fr">B2B &amp; Particuliers</h3>
+          <p class="usp__text" data-lang="nl">Wij bedienen installateurs, architecten én particulieren met dezelfde toewijding en expertise.</p>
+          <p class="usp__text" data-lang="fr">Nous servons installateurs, architectes et particuliers avec le même dévouement et la même expertise.</p>
+        </div>
+
+        <!-- USP 4 -->
+        <div class="usp reveal">
+          <svg class="usp__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <h3 class="usp__title" data-lang="nl">Showroom in Putte</h3>
+          <h3 class="usp__title" data-lang="fr">Showroom à Putte</h3>
+          <p class="usp__text" data-lang="nl">Ervaar de collecties live. Onze showroom biedt persoonlijk advies om de perfecte vloer te kiezen.</p>
+          <p class="usp__text" data-lang="fr">Vivez les collections en vrai. Notre showroom offre des conseils personnalisés pour choisir le sol parfait.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHOWROOM CTA ─────────────────────────────── -->
+  <section class="showroom" id="showroom">
+    <div class="showroom__bg" aria-hidden="true"></div>
+    <div class="showroom__overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="showroom__content reveal">
+        <!-- NL -->
+        <div data-lang="nl">
+          <span class="section-label">Bezoek onze showroom</span>
+          <h2>Voel het verschil van echte kwaliteit.</h2>
+          <p>Niets vervangt het gevoel van een premium vloer onder uw voeten. Kom langs in onze showroom in Putte en laat onze experts u begeleiden naar de perfecte keuze.</p>
+          <a href="#contact" class="btn btn-gold">Maak een afspraak</a>
+        </div>
+        <!-- FR -->
+        <div data-lang="fr">
+          <span class="section-label">Visitez notre showroom</span>
+          <h2>Ressentez la différence d'une vraie qualité.</h2>
+          <p>Rien ne remplace la sensation d'un revêtement premium sous vos pieds. Venez dans notre showroom à Putte et laissez nos experts vous guider vers le choix parfait.</p>
+          <a href="#contact" class="btn btn-gold">Prendre rendez-vous</a>
+        </div>
+
+        <div class="showroom__info">
+          <div class="showroom__detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bareelstraat 75, 2580 Putte
+          </div>
+          <div class="showroom__detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +32 (0)15 649 261
+          </div>
+          <div class="showroom__detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@woodexperience.be
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ─────────────────────────────── -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__header reveal">
+        <span class="section-label" data-lang="nl">Wat onze klanten zeggen</span>
+        <span class="section-label" data-lang="fr">Ce que disent nos clients</span>
+        <h2 data-lang="nl">Vertrouwen gebouwd op elke vierkante meter.</h2>
+        <h2 data-lang="fr">La confiance, posée mètre après mètre.</h2>
+      </div>
+
+      <div class="testi__grid">
+        <blockquote class="testi reveal">
+          <div class="testi__stars" aria-label="5 sterren">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi__quote" data-lang="nl">"Uitzonderlijke kwaliteit en een team dat echt meedenkt. Onze klanten zijn elke keer weer onder de indruk van de vloeren die we leveren dankzij Wood Experience."</p>
+          <p class="testi__quote" data-lang="fr">"Qualité exceptionnelle et une équipe vraiment à l'écoute. Nos clients sont toujours impressionnés par les sols que nous posons grâce à Wood Experience."</p>
+          <p class="testi__author">Thomas V.</p>
+          <p class="testi__role" data-lang="nl">Parketspecialist, Antwerpen</p>
+          <p class="testi__role" data-lang="fr">Spécialiste parquet, Anvers</p>
+        </blockquote>
+
+        <blockquote class="testi reveal">
+          <div class="testi__stars" aria-label="5 sterren">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi__quote" data-lang="nl">"De Craft-collectie heeft onze renovatie naar een volledig ander niveau getild. Het advies in de showroom was gewoon perfect — wij komen zeker terug."</p>
+          <p class="testi__quote" data-lang="fr">"La collection Craft a amené notre rénovation à un tout autre niveau. Les conseils reçus au showroom étaient parfaits — nous reviendrons sans hésiter."</p>
+          <p class="testi__author">Nathalie D.</p>
+          <p class="testi__role" data-lang="nl">Particulier, Mechelen</p>
+          <p class="testi__role" data-lang="fr">Particulière, Malines</p>
+        </blockquote>
+
+        <blockquote class="testi reveal">
+          <div class="testi__stars" aria-label="5 sterren">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi__quote" data-lang="nl">"Als architect werk ik geregeld met Wood Experience voor mijn projecten. De kwaliteit van de Luxe-lijn is ongeëvenaard. Snelle levering, professioneel team."</p>
+          <p class="testi__quote" data-lang="fr">"En tant qu'architecte, je travaille régulièrement avec Wood Experience pour mes projets. La qualité de la gamme Luxe est incomparable. Livraison rapide, équipe professionnelle."</p>
+          <p class="testi__author">Pieter M.</p>
+          <p class="testi__role" data-lang="nl">Architect, Gent</p>
+          <p class="testi__role" data-lang="fr">Architecte, Gand</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ──────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__grid">
+        <div class="contact__left reveal">
+          <!-- NL -->
+          <div data-lang="nl">
+            <span class="section-label">Neem contact op</span>
+            <h2>Klaar om uw project te starten?</h2>
+            <p>Vraag een offerte aan, reserveer een showroombezoek of stel uw vraag. Ons team staat voor u klaar.</p>
+          </div>
+          <!-- FR -->
+          <div data-lang="fr">
+            <span class="section-label">Contactez-nous</span>
+            <h2>Prêt à démarrer votre projet&nbsp;?</h2>
+            <p>Demandez un devis, réservez une visite au showroom ou posez votre question. Notre équipe est à votre disposition.</p>
+          </div>
+
+          <div class="contact__detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bareelstraat 75, 2580 Putte
+          </div>
+          <div class="contact__detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+3215649261" style="color:inherit">+32 (0)15 649 261</a>
+          </div>
+          <div class="contact__detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@woodexperience.be" style="color:inherit">info@woodexperience.be</a>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <form class="form" name="contact" action="#" method="POST" novalidate>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="fname" data-lang="nl">Voornaam</label>
+                <label for="fname" data-lang="fr">Prénom</label>
+                <input type="text" id="fname" name="fname" autocomplete="given-name" required placeholder="Jan" />
+              </div>
+              <div class="form__group">
+                <label for="lname" data-lang="nl">Achternaam</label>
+                <label for="lname" data-lang="fr">Nom de famille</label>
+                <input type="text" id="lname" name="lname" autocomplete="family-name" required placeholder="Janssen" />
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="jan@bedrijf.be" />
+            </div>
+
+            <div class="form__group">
+              <label for="type" data-lang="nl">Ik ben een</label>
+              <label for="type" data-lang="fr">Je suis</label>
+              <select id="type" name="type">
+                <option value="" data-lang="nl">Selecteer...</option>
+                <option value="" data-lang="fr">Sélectionner...</option>
+                <option value="professional" data-lang="nl">Professional (installateur / architect)</option>
+                <option value="professional" data-lang="fr">Professionnel (installateur / architecte)</option>
+                <option value="particular" data-lang="nl">Particulier</option>
+                <option value="particular" data-lang="fr">Particulier</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label for="interest" data-lang="nl">Interesse</label>
+              <label for="interest" data-lang="fr">Intérêt</label>
+              <select id="interest" name="interest">
+                <option value="" data-lang="nl">Selecteer collectie...</option>
+                <option value="" data-lang="fr">Sélectionner une collection...</option>
+                <option value="cosy" >Cosy</option>
+                <option value="craft">Craft</option>
+                <option value="luxe" data-lang="nl">Luxe</option>
+                <option value="luxe" data-lang="fr">Luxe</option>
+                <option value="vinyl" data-lang="nl">Cosy Vinyl</option>
+                <option value="vinyl" data-lang="fr">Cosy Vinyl</option>
+                <option value="showroom" data-lang="nl">Showroombezoek</option>
+                <option value="showroom" data-lang="fr">Visite showroom</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label for="message" data-lang="nl">Uw bericht</label>
+              <label for="message" data-lang="fr">Votre message</label>
+              <textarea id="message" name="message" placeholder="Vertel ons meer over uw project..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="align-self:flex-start">
+              <span data-lang="nl">Verstuur aanvraag</span>
+              <span data-lang="fr">Envoyer la demande</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__brand">Wood<span>Experience</span></p>
+          <p class="footer__tagline" data-lang="nl">Ambacht, vertrouwen en verfijning — premium parket voor elk project in België.</p>
+          <p class="footer__tagline" data-lang="fr">Artisanat, confiance et raffinement — parquet premium pour chaque projet en Belgique.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Collecties</h4>
+          <h4 data-lang="fr">Collections</h4>
+          <ul>
+            <li><a href="#collecties">Cosy</a></li>
+            <li><a href="#collecties">Craft</a></li>
+            <li><a href="#collecties">Luxe</a></li>
+            <li><a href="#collecties" data-lang="nl">Cosy Vinyl</a><a href="#collecties" data-lang="fr">Cosy Vinyl</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Bedrijf</h4>
+          <h4 data-lang="fr">Entreprise</h4>
+          <ul>
+            <li><a href="#intro" data-lang="nl">Over ons</a><a href="#intro" data-lang="fr">À propos</a></li>
+            <li><a href="#showroom" data-lang="nl">Showroom</a><a href="#showroom" data-lang="fr">Showroom</a></li>
+            <li><a href="#contact" data-lang="nl">Contact</a><a href="#contact" data-lang="fr">Contact</a></li>
+            <li><a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2025 Wood Experience. Bareelstraat 75, 2580 Putte.</span>
+        <div class="footer__social">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ──────────────────────────────────── -->
+  <script>
+    // ── Language toggle ────────────────────────────
+    function setLang(lang) {
+      document.body.classList.toggle('fr', lang === 'fr');
+      document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('we-lang', lang);
+    }
+    (function() {
+      const saved = localStorage.getItem('we-lang');
+      if (saved === 'fr') setLang('fr');
+    })();
+
+    // ── Navbar scroll ──────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Hero slider ────────────────────────────────
+    const slides = document.querySelectorAll('.hero__slide');
+    const dots   = document.querySelectorAll('.hero__dot');
+    let current  = 0;
+    let timer;
+
+    function goSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = n;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+      clearInterval(timer);
+      timer = setInterval(nextSlide, 5000);
+    }
+
+    function nextSlide() {
+      goSlide((current + 1) % slides.length);
+    }
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timer = setInterval(nextSlide, 5000);
+    }
+
+    // ── Scroll reveal ──────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) { io.observe(el); });
+
+    // ── Mobile menu (simple toggle) ────────────────
+    const burger = document.getElementById('burger');
+    const links  = document.querySelector('.nav__links');
+    burger.addEventListener('click', function() {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? '' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = 'var(--nav-h)';
+      links.style.left = '0'; links.style.right = '0';
+      links.style.background = 'rgba(28,25,23,.97)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.gap = '1.25rem';
+      burger.setAttribute('aria-expanded', String(!open));
+    });
+  </script>
+
+</body>
+</html>
