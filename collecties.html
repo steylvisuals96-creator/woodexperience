@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collecties — Wood Experience</title>
+  <meta name="description" content="Ontdek de drie collecties van Wood Experience: Cosy, Craft en Luxe. Premium parket en parket vinyl voor elk project en budget." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #1C1917;
+      --dark:    #44403C;
+      --gold:    #c7a98b;
+      --gold-lt: #d4b99e;
+      --bg:      #FAFAF9;
+      --text:    #0C0A09;
+      --muted:   #78716C;
+      --border:  #E7E5E4;
+      --white:   #FFFFFF;
+      --nav-h:   72px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Bodoni Moda', serif; line-height: 1.15; letter-spacing: -0.01em; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── Language toggle ── */
+    [data-lang="fr"] { display: none !important; }
+    body.fr [data-lang="nl"] { display: none !important; }
+    body.fr [data-lang="fr"] { display: revert !important; }
+
+    /* ── Utility ── */
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2.5rem); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 2rem; font-family: 'Jost', sans-serif;
+      font-size: .9rem; font-weight: 500; letter-spacing: .06em;
+      text-transform: uppercase; border-radius: 2px; cursor: pointer;
+      transition: background 220ms ease, color 220ms ease, transform 180ms ease;
+      border: none;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.45); }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .btn-dark { background: var(--black); color: var(--white); }
+    .btn-dark:hover { background: var(--dark); }
+
+    .section-label {
+      display: inline-block; font-family: 'Jost', sans-serif;
+      font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+
+    /* ── Navbar ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: var(--nav-h); display: flex; align-items: center;
+      transition: background 300ms, box-shadow 300ms;
+      background: rgba(28, 25, 23, .96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06);
+    }
+    .nav .container { padding-left: 1rem; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav__logo { font-family: 'Bodoni Moda', serif; font-size: 1.35rem; color: var(--white); letter-spacing: .03em; }
+    .nav__logo span { color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: .85rem; font-weight: 400; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.8); transition: color 200ms; }
+    .nav__links a:hover, .nav__links a.active { color: var(--white); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__actions { display: flex; align-items: center; gap: 1.25rem; }
+    .lang-switch { display: flex; gap: .35rem; font-size: .78rem; font-weight: 500; letter-spacing: .08em; }
+    .lang-switch button { background: none; border: none; cursor: pointer; color: rgba(255,255,255,.5); text-transform: uppercase; padding: .2rem .3rem; transition: color 180ms; font-family: 'Jost', sans-serif; font-size: .78rem; letter-spacing: .08em; }
+    .lang-switch button.active, .lang-switch button:hover { color: var(--white); }
+    .lang-switch .sep { color: rgba(255,255,255,.25); align-self: center; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .4rem; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--white); transition: transform 260ms, opacity 260ms; border-radius: 2px; }
+
+    /* ── Page Hero ── */
+    .page-hero {
+      padding-top: var(--nav-h);
+      background: var(--black);
+      padding-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: rgba(255,255,255,.06);
+    }
+    .page-hero .container { padding-top: clamp(3rem, 6vh, 5rem); }
+    .page-hero__eyebrow {
+      font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .page-hero__title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: var(--white); font-weight: 500; max-width: 700px; margin-bottom: 1.5rem;
+    }
+    .page-hero__title em { font-style: italic; color: var(--gold); }
+    .page-hero__sub {
+      font-size: 1.05rem; color: rgba(255,255,255,.6); max-width: 520px;
+      font-weight: 300; line-height: 1.7;
+    }
+
+    /* ── Collection filter tabs ── */
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 40;
+    }
+    .filter-bar .container {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-bar .container::-webkit-scrollbar { display: none; }
+    .filter-tab {
+      flex-shrink: 0;
+      padding: 1.1rem 1.75rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .82rem; font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: none; background: none; cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 200ms, border-color 200ms;
+      white-space: nowrap;
+    }
+    .filter-tab:hover { color: var(--text); }
+    .filter-tab.active { color: var(--black); border-bottom-color: var(--gold); }
+
+    /* ── Collection sections ── */
+    .collection-section {
+      padding: clamp(5rem, 10vh, 8rem) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .collection-section:last-child { border-bottom: none; }
+    .collection-section:nth-child(even) { background: var(--white); }
+
+    .collection__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .collection-section:nth-child(odd) .collection__grid { direction: rtl; }
+    .collection-section:nth-child(odd) .collection__grid > * { direction: ltr; }
+
+    .collection__img {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .collection__img img { height: 100%; transition: transform 700ms ease; }
+    .collection__img:hover img { transform: scale(1.04); }
+
+    .collection__badge {
+      position: absolute;
+      top: 1.5rem; left: 1.5rem;
+      background: var(--black);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: .68rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: .4rem .85rem;
+      border-radius: 2px;
+    }
+
+    .collection__content h2 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      color: var(--black); margin-bottom: .5rem;
+    }
+    .collection__content .collection__subtitle {
+      font-family: 'Jost', sans-serif;
+      font-size: .8rem; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem;
+    }
+    .collection__content p {
+      color: var(--muted); font-weight: 300; font-size: 1.05rem;
+      line-height: 1.75; margin-bottom: 1rem;
+    }
+
+    .collection__specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem 2rem;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: var(--bg);
+      border-radius: 2px;
+      border: 1px solid var(--border);
+    }
+    .collection-section:nth-child(even) .collection__specs { background: #F5F5F4; }
+
+    .spec__item { display: flex; flex-direction: column; gap: .2rem; }
+    .spec__label {
+      font-size: .68rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .spec__value { font-family: 'Bodoni Moda', serif; font-size: 1rem; color: var(--black); }
+
+    .collection__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .5rem; }
+
+    /* ── Vinyl subsection inside Cosy ── */
+    .vinyl-section {
+      margin-top: 5rem;
+      padding-top: 5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Overview grid (all collections) ── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .overview-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .overview-card img { height: 100%; transition: transform 600ms ease; }
+    .overview-card:hover img { transform: scale(1.06); }
+    .overview-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,10,9,.9) 0%, rgba(12,10,9,.1) 60%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 2rem;
+      transition: background 400ms;
+    }
+    .overview-card:hover .overview-card__overlay {
+      background: linear-gradient(to top, rgba(12,10,9,.95) 0%, rgba(12,10,9,.25) 60%);
+    }
+    .overview-card__tag { font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+    .overview-card__name { font-family: 'Bodoni Moda', serif; font-size: 2rem; color: var(--white); margin-bottom: .5rem; }
+    .overview-card__desc { font-size: .88rem; color: rgba(255,255,255,.65); font-weight: 300; line-height: 1.55; }
+    .overview-card__arrow {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .8rem; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--gold);
+      margin-top: 1rem; opacity: 0; transform: translateY(6px);
+      transition: opacity 300ms, transform 300ms;
+    }
+    .overview-card:hover .overview-card__arrow { opacity: 1; transform: translateY(0); }
+
+    /* ── CTA banner ── */
+    .cta-banner {
+      background: var(--black);
+      padding: clamp(4rem, 8vh, 6rem) 0;
+      text-align: center;
+    }
+    .cta-banner h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 1.25rem; }
+    .cta-banner p { color: rgba(255,255,255,.6); font-weight: 300; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-banner__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+    /* ── Footer ── */
+    .footer { background: #0C0A09; padding: 3rem 0 2rem; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer__brand { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 1rem; }
+    .footer__brand span { color: var(--gold); }
+    .footer__tagline { font-size: .88rem; color: rgba(255,255,255,.4); font-weight: 300; line-height: 1.6; max-width: 260px; }
+    .footer__col h4 { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: .6rem; }
+    .footer__col ul li a { font-size: .88rem; color: rgba(255,255,255,.5); transition: color 200ms; }
+    .footer__col ul li a:hover { color: var(--white); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.06); font-size: .8rem; color: rgba(255,255,255,.3); }
+    .footer__social { display: flex; gap: 1rem; }
+    .footer__social a { color: rgba(255,255,255,.4); transition: color 200ms; }
+    .footer__social a:hover { color: var(--white); }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .overview-grid { grid-template-columns: repeat(2, 1fr); }
+      .overview-card:last-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
+      .collection__grid { gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --nav-h: 60px; }
+      .nav__links { display: none; }
+      .nav__burger { display: flex; }
+      .nav__actions .btn { display: none; }
+      .lang-switch { margin-left: auto; }
+      .collection__grid { grid-template-columns: 1fr; }
+      .collection-section:nth-child(odd) .collection__grid { direction: ltr; }
+      .collection__img { aspect-ratio: 3/2; }
+      .collection__specs { grid-template-columns: 1fr 1fr; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .overview-card:last-child { grid-column: auto; aspect-ratio: 3/2; }
+      .footer__grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .collection__specs { grid-template-columns: 1fr; }
+      .filter-tab { padding: .9rem 1.25rem; font-size: .76rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Hoofdnavigatie">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Wood Experience home">
+          Wood<span>Experience</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="collecties.html" class="active" data-lang="nl">Collecties</a><a href="collecties.html" class="active" data-lang="fr">Collections</a></li>
+          <li><a href="index.html#voordelen" data-lang="nl">Voordelen</a><a href="index.html#voordelen" data-lang="fr">Avantages</a></li>
+          <li><a href="index.html#showroom" data-lang="nl">Showroom</a><a href="index.html#showroom" data-lang="fr">Showroom</a></li>
+          <li><a href="index.html#contact" data-lang="nl">Contact</a><a href="index.html#contact" data-lang="fr">Contact</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <div class="lang-switch" role="group" aria-label="Taal kiezen">
+            <button id="btn-nl" class="active" onclick="setLang('nl')" aria-label="Nederlands">NL</button>
+            <span class="sep">|</span>
+            <button id="btn-fr" onclick="setLang('fr')" aria-label="Français">FR</button>
+          </div>
+          <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+          <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+        </div>
+
+        <button class="nav__burger" id="burger" aria-label="Menu openen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__eyebrow" data-lang="nl">Parket &amp; Parket Vinyl</p>
+      <p class="page-hero__eyebrow" data-lang="fr">Parquet &amp; Parquet Vinyl</p>
+      <h1 class="page-hero__title" data-lang="nl">Drie collecties,<br><em>één standaard.</em></h1>
+      <h1 class="page-hero__title" data-lang="fr">Trois collections,<br><em>un seul standard.</em></h1>
+      <p class="page-hero__sub" data-lang="nl">Van toegankelijk tot exclusief — Wood Experience heeft de perfecte vloer voor elk project, elk budget en elke stijl.</p>
+      <p class="page-hero__sub" data-lang="fr">De l'accessible à l'exclusif — Wood Experience a le revêtement parfait pour chaque projet, chaque budget et chaque style.</p>
+    </div>
+  </section>
+
+  <!-- ── FILTER BAR ── -->
+  <div class="filter-bar" role="navigation" aria-label="Collectie navigatie">
+    <div class="container">
+      <button class="filter-tab active" onclick="scrollTo('cosy')" data-lang="nl">Cosy Parket</button>
+      <button class="filter-tab active" onclick="scrollTo('cosy')" data-lang="fr">Cosy Parquet</button>
+      <button class="filter-tab" onclick="scrollTo('cosy-vinyl')" data-lang="nl">Cosy Vinyl</button>
+      <button class="filter-tab" onclick="scrollTo('cosy-vinyl')" data-lang="fr">Cosy Vinyl</button>
+      <button class="filter-tab" onclick="scrollTo('craft')" data-lang="nl">Craft</button>
+      <button class="filter-tab" onclick="scrollTo('craft')" data-lang="fr">Craft</button>
+      <button class="filter-tab" onclick="scrollTo('luxe')" data-lang="nl">Luxe</button>
+      <button class="filter-tab" onclick="scrollTo('luxe')" data-lang="fr">Luxe</button>
+    </div>
+  </div>
+
+  <!-- ── COSY PARKET ── -->
+  <section class="collection-section" id="cosy">
+    <div class="container">
+      <div class="collection__grid reveal">
+        <div class="collection__img">
+          <img src="images/cosy-parket.jpg" alt="Cosy parket collectie" loading="lazy" />
+          <span class="collection__badge" data-lang="nl">Toegankelijk</span>
+          <span class="collection__badge" data-lang="fr">Accessible</span>
+        </div>
+        <div class="collection__content">
+          <span class="section-label" data-lang="nl">Collectie 01</span>
+          <span class="section-label" data-lang="fr">Collection 01</span>
+          <h2>Cosy</h2>
+          <p class="collection__subtitle" data-lang="nl">Voorgelakt parket — Stijlvol &amp; Betaalbaar</p>
+          <p class="collection__subtitle" data-lang="fr">Parquet pré-verni — Élégant &amp; Abordable</p>
+
+          <p data-lang="nl">De Cosy-lijn is ontworpen voor wie kwaliteit en stijl wil zonder compromissen te sluiten op het budget. Ons voorgelakt parket combineert duurzaamheid met een warme uitstraling die in elk interieur past.</p>
+          <p data-lang="fr">La gamme Cosy est conçue pour ceux qui veulent qualité et style sans compromis sur le budget. Notre parquet pré-verni combine durabilité et chaleur visuelle qui s'adapte à tout intérieur.</p>
+
+          <p data-lang="nl">Ideaal voor renovaties, huurpanden en woningen waar snelle installatie en een verzorgd resultaat centraal staan. De vlakke, afgewerkte oppervlakken zijn onderhoudsarm en bestand tegen dagelijks gebruik.</p>
+          <p data-lang="fr">Idéal pour les rénovations, les locations et les logements où une installation rapide et un résultat soigné sont essentiels. Les surfaces planes et finies sont faciles à entretenir et résistantes à l'usage quotidien.</p>
+
+          <div class="collection__specs">
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Houtsoort</span>
+              <span class="spec__label" data-lang="fr">Essence</span>
+              <span class="spec__value" data-lang="nl">Eik, Beuk, Essen</span>
+              <span class="spec__value" data-lang="fr">Chêne, Hêtre, Frêne</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Afwerking</span>
+              <span class="spec__label" data-lang="fr">Finition</span>
+              <span class="spec__value" data-lang="nl">Voorgelakt</span>
+              <span class="spec__value" data-lang="fr">Pré-verni</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Dikte</span>
+              <span class="spec__label" data-lang="fr">Épaisseur</span>
+              <span class="spec__value">14 – 18 mm</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Installatie</span>
+              <span class="spec__label" data-lang="fr">Installation</span>
+              <span class="spec__value" data-lang="nl">Lijmen / Klikken</span>
+              <span class="spec__value" data-lang="fr">Collage / Clic</span>
+            </div>
+          </div>
+
+          <div class="collection__cta">
+            <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+            <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="nl">Showroom bezoeken</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="fr">Visiter le showroom</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COSY VINYL ── -->
+  <section class="collection-section" id="cosy-vinyl">
+    <div class="container">
+      <div class="collection__grid reveal">
+        <div class="collection__img">
+          <img src="images/cosy-vinyl.jpg" alt="Cosy Vinyl collectie" loading="lazy" />
+          <span class="collection__badge" data-lang="nl">Waterbestendig</span>
+          <span class="collection__badge" data-lang="fr">Résistant à l'eau</span>
+        </div>
+        <div class="collection__content">
+          <span class="section-label" data-lang="nl">Collectie 02</span>
+          <span class="section-label" data-lang="fr">Collection 02</span>
+          <h2>Cosy Vinyl</h2>
+          <p class="collection__subtitle" data-lang="nl">Parket Vinyl — Slim &amp; Functioneel</p>
+          <p class="collection__subtitle" data-lang="fr">Parquet Vinyl — Intelligent &amp; Fonctionnel</p>
+
+          <p data-lang="nl">Cosy Vinyl combineert de warme look van echt hout met de praktische voordelen van modern vinyl. Waterbestendig, krasbestendig en geschikt voor elk vertrek — inclusief badkamer en keuken.</p>
+          <p data-lang="fr">Cosy Vinyl combine l'aspect chaleureux du vrai bois avec les avantages pratiques du vinyl moderne. Résistant à l'eau, aux rayures et adapté à toutes les pièces — y compris salle de bain et cuisine.</p>
+
+          <p data-lang="nl">De geïntegreerde ondervloer zorgt voor comfort onder de voeten en uitstekende geluidsisolatie. Perfect voor projecten waarbij onderhoud en duurzaamheid even belangrijk zijn als esthetiek.</p>
+          <p data-lang="fr">Le sous-plancher intégré assure un confort sous les pieds et une excellente isolation phonique. Parfait pour les projets où l'entretien et la durabilité sont aussi importants que l'esthétique.</p>
+
+          <div class="collection__specs">
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Materiaal</span>
+              <span class="spec__label" data-lang="fr">Matériau</span>
+              <span class="spec__value">SPC / LVT Vinyl</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Waterbestendig</span>
+              <span class="spec__label" data-lang="fr">Résistance eau</span>
+              <span class="spec__value" data-lang="nl">100%</span>
+              <span class="spec__value" data-lang="fr">100%</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Dikte</span>
+              <span class="spec__label" data-lang="fr">Épaisseur</span>
+              <span class="spec__value">6 – 8 mm</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Installatie</span>
+              <span class="spec__label" data-lang="fr">Installation</span>
+              <span class="spec__value" data-lang="nl">Zwevend / Lijmen</span>
+              <span class="spec__value" data-lang="fr">Flottant / Collage</span>
+            </div>
+          </div>
+
+          <div class="collection__cta">
+            <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+            <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="nl">Showroom bezoeken</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="fr">Visiter le showroom</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CRAFT ── -->
+  <section class="collection-section" id="craft">
+    <div class="container">
+      <div class="collection__grid reveal">
+        <div class="collection__img">
+          <img src="images/craft.jpg" alt="Craft eiken parket collectie" loading="lazy" />
+          <span class="collection__badge" data-lang="nl">Maatwerk</span>
+          <span class="collection__badge" data-lang="fr">Sur-mesure</span>
+        </div>
+        <div class="collection__content">
+          <span class="section-label" data-lang="nl">Collectie 03</span>
+          <span class="section-label" data-lang="fr">Collection 03</span>
+          <h2>Craft</h2>
+          <p class="collection__subtitle" data-lang="nl">Eiken Maatwerk — Ambacht &amp; Karakter</p>
+          <p class="collection__subtitle" data-lang="fr">Chêne Sur-mesure — Artisanat &amp; Caractère</p>
+
+          <p data-lang="nl">De Craft-collectie is voor wie écht ambacht wil. Massief en meerlaags eiken parket op maat — van breedte en lengte tot afwerking en kleur. Elke plank vertelt een verhaal.</p>
+          <p data-lang="fr">La collection Craft est pour ceux qui veulent un véritable artisanat. Parquet en chêne massif et multicouche sur mesure — de la largeur et longueur à la finition et couleur. Chaque lame raconte une histoire.</p>
+
+          <p data-lang="nl">Beschikbaar in planken, visgraatmotief en chevronpatronen. De geolied, gelaagd of gelakt afwerking geeft u volledige controle over het eindresultaat. Voor interieurs die de tand des tijds doorstaan.</p>
+          <p data-lang="fr">Disponible en planches, point de Hongrie et chevrons. La finition huilée, brossée ou vernie vous donne un contrôle total sur le résultat final. Pour des intérieurs qui traversent le temps.</p>
+
+          <div class="collection__specs">
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Houtsoort</span>
+              <span class="spec__label" data-lang="fr">Essence</span>
+              <span class="spec__value" data-lang="nl">Eik (Quercus)</span>
+              <span class="spec__value" data-lang="fr">Chêne (Quercus)</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Patronen</span>
+              <span class="spec__label" data-lang="fr">Motifs</span>
+              <span class="spec__value" data-lang="nl">Plank / Visgraat / Chevron</span>
+              <span class="spec__value" data-lang="fr">Planche / Hongrie / Chevron</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Afwerking</span>
+              <span class="spec__label" data-lang="fr">Finition</span>
+              <span class="spec__value" data-lang="nl">Geolied / Gelakt / Geborsteld</span>
+              <span class="spec__value" data-lang="fr">Huilé / Verni / Brossé</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Dikte</span>
+              <span class="spec__label" data-lang="fr">Épaisseur</span>
+              <span class="spec__value">18 – 22 mm</span>
+            </div>
+          </div>
+
+          <div class="collection__cta">
+            <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+            <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="nl">Showroom bezoeken</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="fr">Visiter le showroom</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LUXE ── -->
+  <section class="collection-section" id="luxe">
+    <div class="container">
+      <div class="collection__grid reveal">
+        <div class="collection__img">
+          <img src="images/luxe.jpg" alt="Luxe exclusief parket collectie" loading="lazy" />
+          <span class="collection__badge" data-lang="nl">Exclusief</span>
+          <span class="collection__badge" data-lang="fr">Exclusif</span>
+        </div>
+        <div class="collection__content">
+          <span class="section-label" data-lang="nl">Collectie 04</span>
+          <span class="section-label" data-lang="fr">Collection 04</span>
+          <h2>Luxe</h2>
+          <p class="collection__subtitle" data-lang="nl">Premium Houtsoorten — Geen Compromissen</p>
+          <p class="collection__subtitle" data-lang="fr">Essences Premium — Zéro Compromis</p>
+
+          <p data-lang="nl">De Luxe-collectie is het summum van wat Wood Experience te bieden heeft. Exclusieve houtsoorten van over de hele wereld, geselecteerd op uitzonderlijke nerf, kleur en karakter voor de meest veeleisende projecten.</p>
+          <p data-lang="fr">La collection Luxe représente le summum de ce que Wood Experience a à offrir. Essences exclusives du monde entier, sélectionnées pour leurs veines, couleurs et caractère exceptionnels pour les projets les plus exigeants.</p>
+
+          <p data-lang="nl">Van Amerikaans notenhout tot Europees walnotenhout, van brede eikenplanken tot exotische soorten — elke vloer is een kunstwerk. Op maat gemaakt voor architecten, ontwerpers en particulieren die het beste eisen.</p>
+          <p data-lang="fr">De la noix américaine à la noix européenne, des larges planches de chêne aux essences exotiques — chaque sol est une œuvre d'art. Fabriqué sur mesure pour les architectes, designers et particuliers qui exigent le meilleur.</p>
+
+          <div class="collection__specs">
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Houtsoorten</span>
+              <span class="spec__label" data-lang="fr">Essences</span>
+              <span class="spec__value" data-lang="nl">Noot, Eik, Exotisch</span>
+              <span class="spec__value" data-lang="fr">Noyer, Chêne, Exotique</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Breedte</span>
+              <span class="spec__label" data-lang="fr">Largeur</span>
+              <span class="spec__value" data-lang="nl">Tot 300 mm</span>
+              <span class="spec__value" data-lang="fr">Jusqu'à 300 mm</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Afwerking</span>
+              <span class="spec__label" data-lang="fr">Finition</span>
+              <span class="spec__value" data-lang="nl">Volledig op maat</span>
+              <span class="spec__value" data-lang="fr">Entièrement sur mesure</span>
+            </div>
+            <div class="spec__item">
+              <span class="spec__label" data-lang="nl">Service</span>
+              <span class="spec__label" data-lang="fr">Service</span>
+              <span class="spec__value" data-lang="nl">Persoonlijk advies</span>
+              <span class="spec__value" data-lang="fr">Conseil personnalisé</span>
+            </div>
+          </div>
+
+          <div class="collection__cta">
+            <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Persoonlijk advies</a>
+            <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Conseil personnalisé</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="nl">Showroom bezoeken</a>
+            <a href="index.html#showroom" class="btn btn-dark" data-lang="fr">Visiter le showroom</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ── -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-lang="nl" class="reveal">Klaar om de perfecte vloer te kiezen?</h2>
+      <h2 data-lang="fr" class="reveal">Prêt à choisir le revêtement parfait&nbsp;?</h2>
+      <p data-lang="nl" class="reveal">Bezoek onze showroom in Putte of vraag een offerte aan. Onze experts begeleiden u van A tot Z.</p>
+      <p data-lang="fr" class="reveal">Visitez notre showroom à Putte ou demandez un devis. Nos experts vous accompagnent de A à Z.</p>
+      <div class="cta-banner__actions reveal">
+        <a href="index.html#contact" class="btn btn-gold" data-lang="nl">Offerte aanvragen</a>
+        <a href="index.html#contact" class="btn btn-gold" data-lang="fr">Demander un devis</a>
+        <a href="index.html#showroom" class="btn btn-outline" data-lang="nl">Showroom bezoeken</a>
+        <a href="index.html#showroom" class="btn btn-outline" data-lang="fr">Visiter le showroom</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__brand">Wood<span>Experience</span></p>
+          <p class="footer__tagline" data-lang="nl">Ambacht, vertrouwen en verfijning — premium parket voor elk project in België.</p>
+          <p class="footer__tagline" data-lang="fr">Artisanat, confiance et raffinement — parquet premium pour chaque projet en Belgique.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Collecties</h4>
+          <h4 data-lang="fr">Collections</h4>
+          <ul>
+            <li><a href="#cosy">Cosy</a></li>
+            <li><a href="#cosy-vinyl">Cosy Vinyl</a></li>
+            <li><a href="#craft">Craft</a></li>
+            <li><a href="#luxe">Luxe</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-lang="nl">Bedrijf</h4>
+          <h4 data-lang="fr">Entreprise</h4>
+          <ul>
+            <li><a href="index.html#intro" data-lang="nl">Over ons</a><a href="index.html#intro" data-lang="fr">À propos</a></li>
+            <li><a href="index.html#showroom" data-lang="nl">Showroom</a><a href="index.html#showroom" data-lang="fr">Showroom</a></li>
+            <li><a href="index.html#contact" data-lang="nl">Contact</a><a href="index.html#contact" data-lang="fr">Contact</a></li>
+            <li><a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2025 Wood Experience. Bareelstraat 75, 2580 Putte.</span>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/woodexperience.be" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.classList.toggle('fr', lang === 'fr');
+      document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('we-lang', lang);
+    }
+    (function() {
+      const saved = localStorage.getItem('we-lang');
+      if (saved === 'fr') setLang('fr');
+    })();
+
+    // Sticky filter tab highlight on scroll
+    const sections = ['cosy', 'cosy-vinyl', 'craft', 'luxe'];
+    const tabs = document.querySelectorAll('.filter-tab');
+
+    function updateTabs() {
+      let active = 0;
+      const offset = document.querySelector('.filter-bar').offsetHeight + 72 + 40;
+      sections.forEach(function(id, i) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= offset) active = i;
+      });
+      // Each section has NL+FR tab pair, so active index * 2
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      if (tabs[active * 2]) tabs[active * 2].classList.add('active');
+      if (tabs[active * 2 + 1]) tabs[active * 2 + 1].classList.add('active');
+    }
+
+    window.addEventListener('scroll', updateTabs, { passive: true });
+
+    function scrollTo(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const offset = document.querySelector('.filter-bar').offsetHeight + 72;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const links = document.querySelector('.nav__links');
+    burger.addEventListener('click', function() {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? '' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = 'var(--nav-h)';
+      links.style.left = '0'; links.style.right = '0';
+      links.style.background = 'rgba(28,25,23,.97)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.gap = '1.25rem';
+      burger.setAttribute('aria-expanded', String(!open));
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el) { io.observe(el); });
+  </script>
+
+</body>
+</html>
