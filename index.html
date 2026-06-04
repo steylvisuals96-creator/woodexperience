@@ -118,11 +118,15 @@
       display: flex;
       align-items: center;
       transition: background 300ms, box-shadow 300ms;
+      padding-left: 0;
     }
     .nav.scrolled {
       background: rgba(28, 25, 23, .96);
       backdrop-filter: blur(12px);
       box-shadow: 0 1px 0 rgba(255,255,255,.06);
+    }
+    .nav .container {
+      padding-left: clamp(0.75rem, 2vw, 1.25rem);
     }
     .nav__inner {
       display: flex;
