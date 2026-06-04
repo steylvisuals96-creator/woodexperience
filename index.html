@@ -50,9 +50,9 @@
     ul { list-style: none; }
 
     /* ── Language toggle ─────────────────────────── */
-    [data-lang="fr"] { display: none; }
-    body.fr [data-lang="nl"] { display: none; }
-    body.fr [data-lang="fr"] { display: revert; }
+    [data-lang="fr"] { display: none !important; }
+    body.fr [data-lang="nl"] { display: none !important; }
+    body.fr [data-lang="fr"] { display: revert !important; }
 
     /* ── Utility ─────────────────────────────────── */
     .container {
@@ -126,7 +126,7 @@
       box-shadow: 0 1px 0 rgba(255,255,255,.06);
     }
     .nav .container {
-      padding-left: clamp(0.75rem, 2vw, 1.25rem);
+      padding-left: 1rem;
     }
     .nav__inner {
       display: flex;
@@ -811,7 +811,6 @@
         </a>
 
         <ul class="nav__links" role="list">
-          <li><a href="#collecties" data-lang="nl">Collecties</a><a href="#collecties" data-lang="fr">Collections</a></li>
           <li><a href="#voordelen" data-lang="nl">Voordelen</a><a href="#voordelen" data-lang="fr">Avantages</a></li>
           <li><a href="#showroom" data-lang="nl">Showroom</a><a href="#showroom" data-lang="fr">Showroom</a></li>
           <li><a href="#contact" data-lang="nl">Contact</a><a href="#contact" data-lang="fr">Contact</a></li>
